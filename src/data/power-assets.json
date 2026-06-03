@@ -1,0 +1,496 @@
+[
+  {
+    "id": "crane-tmi-pa",
+    "name": "Crane Clean Energy Center (Three Mile Island Unit 1 restart)",
+    "type": "nuclear_restart",
+    "owner": "Constellation Energy",
+    "offtaker": "Microsoft",
+    "location": {
+      "city": "Londonderry Twp",
+      "county": "Dauphin",
+      "state": "PA",
+      "lat": 40.153,
+      "lng": -76.725
+    },
+    "iso": "PJM",
+    "capacity_mw": 835,
+    "status": "under_construction",
+    "online_year": 2027,
+    "linked_campus_ids": [],
+    "ppa": {
+      "term_years": 20,
+      "type": "nuclear restart PPA"
+    },
+    "investment_usd_b": 1.6,
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/three-mile-island-nuclear-plant-restart-ahead-of-schedule-in-boon-to-microsofts-ai-ambitions-report/",
+      "https://www.nucnet.org/news/constellation-secures-usd1-billion-federal-loann-for-three-mile-island-restart-11-3-2025"
+    ],
+    "confidence": "high",
+    "notes": "TMI Unit 1 (offline since 2019) restarting under a 20-yr, ~$16B PPA with Microsoft; ~$1B DOE loan; restart reportedly ahead of schedule (2027). Iconic marker of the AI-nuclear revival."
+  },
+  {
+    "id": "susquehanna-talen-pa",
+    "name": "Susquehanna Steam Electric Station",
+    "type": "nuclear_existing",
+    "owner": "Talen Energy",
+    "offtaker": "Amazon (AWS)",
+    "location": {
+      "city": "Berwick",
+      "county": "Luzerne",
+      "state": "PA",
+      "lat": 41.092,
+      "lng": -76.143
+    },
+    "iso": "PJM",
+    "capacity_mw": 1920,
+    "status": "operational",
+    "online_year": 1983,
+    "linked_campus_ids": [
+      "aws-pennsylvania-susquehanna"
+    ],
+    "ppa": {
+      "term_years": 17,
+      "type": "nuclear PPA (front-of-meter)"
+    },
+    "investment_usd_b": 0,
+    "sources": [
+      "https://smrintel.com/nuclear-data-center-deals/"
+    ],
+    "confidence": "high",
+    "notes": "Amazon expanded its Talen offtake to 1,920 MW through 2042 after FERC rejected the original behind-the-meter co-location structure."
+  },
+  {
+    "id": "clinton-meta-il",
+    "name": "Clinton Clean Energy Center",
+    "type": "nuclear_existing",
+    "owner": "Constellation Energy",
+    "offtaker": "Meta",
+    "location": {
+      "city": "Clinton",
+      "county": "DeWitt",
+      "state": "IL",
+      "lat": 40.172,
+      "lng": -88.834
+    },
+    "iso": "MISO",
+    "capacity_mw": 1121,
+    "status": "operational",
+    "online_year": 1987,
+    "linked_campus_ids": [],
+    "ppa": {
+      "term_years": 20,
+      "type": "nuclear PPA (relicense + uprate)"
+    },
+    "investment_usd_b": 0,
+    "sources": [
+      "https://smrintel.com/nuclear-data-center-deals/"
+    ],
+    "confidence": "high",
+    "notes": "Meta's 20-yr PPA (from 2027) keeps Clinton open past its 2027 state-subsidy expiry and adds ~30 MW of uprate. Meta's first nuclear deal."
+  },
+  {
+    "id": "vogtle-3-4-ga",
+    "name": "Plant Vogtle Units 3 & 4 (new AP1000s)",
+    "type": "nuclear_existing",
+    "owner": "Georgia Power (Southern Co)",
+    "offtaker": "Georgia grid (SERC)",
+    "location": {
+      "city": "Waynesboro",
+      "county": "Burke",
+      "state": "GA",
+      "lat": 33.143,
+      "lng": -81.763
+    },
+    "iso": "SERC",
+    "capacity_mw": 2234,
+    "status": "operational",
+    "online_year": 2024,
+    "linked_campus_ids": [
+      "msft-fairwater-atlanta",
+      "qts-fayetteville-ga",
+      "meta-montgomery-al"
+    ],
+    "investment_usd_b": 35,
+    "sources": [
+      "https://www.eia.gov/todayinenergy/detail.php?id=61963"
+    ],
+    "confidence": "high",
+    "notes": "Only new US reactors in a generation (~2.2 GW). Supports SERC/Southern Co load growth that is now dominated by data centers."
+  },
+  {
+    "id": "oklo-aurora-id",
+    "name": "Oklo Aurora Powerhouse (INL)",
+    "type": "nuclear_smr",
+    "owner": "Oklo",
+    "offtaker": "Meta / others",
+    "location": {
+      "city": "Idaho Falls",
+      "county": "Butte",
+      "state": "ID",
+      "lat": 43.521,
+      "lng": -112.05
+    },
+    "iso": "WECC",
+    "capacity_mw": 75,
+    "status": "announced",
+    "online_year": 2028,
+    "linked_campus_ids": [],
+    "ppa": {
+      "type": "SMR (Aurora SFR)"
+    },
+    "sources": [
+      "https://smrintel.com/nuclear-data-center-deals/"
+    ],
+    "confidence": "medium",
+    "notes": "First Oklo Aurora fast reactor at Idaho National Lab; part of Meta's multi-GW SMR procurement stack. First-of-a-kind timing risk is high."
+  },
+  {
+    "id": "kairos-hermes-tn",
+    "name": "Kairos Power Hermes (KP-FHR)",
+    "type": "nuclear_smr",
+    "owner": "Kairos Power",
+    "offtaker": "Google",
+    "location": {
+      "city": "Oak Ridge",
+      "county": "Roane",
+      "state": "TN",
+      "lat": 35.93,
+      "lng": -84.31
+    },
+    "iso": "TVA",
+    "capacity_mw": 500,
+    "status": "under_construction",
+    "online_year": 2030,
+    "linked_campus_ids": [],
+    "ppa": {
+      "type": "SMR (KP-FHR), 500 MW by 2035"
+    },
+    "sources": [
+      "https://introl.com/blog/nuclear-power-ai-data-centers-microsoft-google-amazon-2025"
+    ],
+    "confidence": "medium",
+    "notes": "Google committed to 500 MW of Kairos fluoride-salt reactors by 2035; Hermes demo under construction at Oak Ridge."
+  },
+  {
+    "id": "xenergy-amazon-wa",
+    "name": "X-energy Xe-100 (Energy Northwest)",
+    "type": "nuclear_smr",
+    "owner": "X-energy / Energy Northwest",
+    "offtaker": "Amazon (AWS)",
+    "location": {
+      "city": "Richland",
+      "county": "Benton",
+      "state": "WA",
+      "lat": 46.47,
+      "lng": -119.33
+    },
+    "iso": "WECC",
+    "capacity_mw": 320,
+    "status": "announced",
+    "online_year": 2031,
+    "linked_campus_ids": [],
+    "ppa": {
+      "type": "SMR (Xe-100 HTGR), expandable to 960 MW"
+    },
+    "investment_usd_b": 0.5,
+    "sources": [
+      "https://smrintel.com/nuclear-data-center-deals/"
+    ],
+    "confidence": "medium",
+    "notes": "Amazon-backed X-energy high-temp gas reactors near Columbia Generating Station; initial ~320 MW, scalable to ~960 MW."
+  },
+  {
+    "id": "terrapower-natrium-wy",
+    "name": "TerraPower Natrium (Kemmerer)",
+    "type": "nuclear_smr",
+    "owner": "TerraPower",
+    "offtaker": "PacifiCorp grid / hyperscaler interest",
+    "location": {
+      "city": "Kemmerer",
+      "county": "Lincoln",
+      "state": "WY",
+      "lat": 41.792,
+      "lng": -110.537
+    },
+    "iso": "WECC",
+    "capacity_mw": 345,
+    "status": "under_construction",
+    "online_year": 2030,
+    "linked_campus_ids": [],
+    "ppa": {
+      "type": "SMR (Natrium SFR + molten-salt storage, 345 MW base / 500 MW peak)"
+    },
+    "investment_usd_b": 4,
+    "sources": [
+      "https://smrintel.com/nuclear-data-center-deals/"
+    ],
+    "confidence": "medium",
+    "notes": "Sodium fast reactor with thermal storage on a retiring coal site; data-center offtake under discussion."
+  },
+  {
+    "id": "entergy-hyperion-gas-la",
+    "name": "Entergy CCGTs for Meta Hyperion",
+    "type": "gas_plant",
+    "owner": "Entergy Louisiana",
+    "offtaker": "Meta",
+    "location": {
+      "city": "Holly Ridge",
+      "county": "Richland",
+      "state": "LA",
+      "lat": 32.41,
+      "lng": -91.66
+    },
+    "iso": "MISO",
+    "capacity_mw": 2262,
+    "status": "under_construction",
+    "online_year": 2028,
+    "linked_campus_ids": [
+      "meta-hyperion"
+    ],
+    "investment_usd_b": 5,
+    "sources": [
+      "https://www.power-eng.com/onsite-power/onsite-gas-turbines-reciprocating-engines-to-power-meta-data-center/"
+    ],
+    "confidence": "high",
+    "notes": "Three new combined-cycle gas plants (~2.26 GW) Entergy is building primarily to serve Meta's Hyperion campus — a flashpoint in the 'who pays' debate over data-center gas."
+  },
+  {
+    "id": "homer-city-gas-pa",
+    "name": "Homer City on-site gas (7x GE Vernova turbines)",
+    "type": "gas_plant",
+    "owner": "Homer City Redevelopment",
+    "offtaker": "Homer City data campus",
+    "location": {
+      "city": "Homer City",
+      "county": "Indiana",
+      "state": "PA",
+      "lat": 40.512,
+      "lng": -79.162
+    },
+    "iso": "PJM",
+    "capacity_mw": 4500,
+    "status": "under_construction",
+    "online_year": 2027,
+    "linked_campus_ids": [
+      "homer-city-pa"
+    ],
+    "investment_usd_b": 10,
+    "sources": [
+      "https://www.power-eng.com/gas/turbines/data-centers-drive-record-surge-in-ge-vernova-power-equipment-orders-as-turbine-slots-tighten-through-2030/"
+    ],
+    "confidence": "medium",
+    "notes": "~4.5 GW of new gas on a retired coal site — among the largest behind-the-meter gas builds; anchors GE Vernova's turbine backlog."
+  },
+  {
+    "id": "xai-memphis-gas-tn",
+    "name": "xAI Colossus on-site gas turbines",
+    "type": "gas_plant",
+    "owner": "xAI / Solaris / VoltaGrid",
+    "offtaker": "xAI",
+    "location": {
+      "city": "Memphis",
+      "county": "Shelby",
+      "state": "TN",
+      "lat": 35.063,
+      "lng": -90.045
+    },
+    "iso": "TVA",
+    "capacity_mw": 420,
+    "status": "operational",
+    "online_year": 2024,
+    "linked_campus_ids": [
+      "xai-colossus1-memphis",
+      "xai-colossus2-memphis"
+    ],
+    "investment_usd_b": 1,
+    "sources": [
+      "https://www.cnbc.com/2025/07/03/musks-xai-gets-permit-for-turbines-to-power-supercomputer-in-memphis.html"
+    ],
+    "confidence": "high",
+    "notes": "Mobile + permanent gas turbines powering Colossus before grid build-out; subject of Memphis air-quality controversy."
+  },
+  {
+    "id": "abilene-lancium-gas-tx",
+    "name": "Lancium / Crusoe on-site gas (Stargate Abilene)",
+    "type": "gas_plant",
+    "owner": "Crusoe / Lancium",
+    "offtaker": "OpenAI / Oracle (Stargate)",
+    "location": {
+      "city": "Abilene",
+      "county": "Taylor",
+      "state": "TX",
+      "lat": 32.453,
+      "lng": -99.738
+    },
+    "iso": "ERCOT",
+    "capacity_mw": 360,
+    "status": "operational",
+    "online_year": 2025,
+    "linked_campus_ids": [
+      "stargate-abilene"
+    ],
+    "sources": [
+      "https://www.datacenterdynamics.com/en/analysis/openai-building-stargate-nvidia-oracle-chatgpt/"
+    ],
+    "confidence": "medium",
+    "notes": "Bridge gas generation at Abilene while the larger ERCOT interconnect and solar+storage come online."
+  },
+  {
+    "id": "chevron-westtexas-gas",
+    "name": "Chevron / Engine No.1 power-for-data-centers",
+    "type": "gas_plant",
+    "owner": "Chevron / Engine No.1 / GE Vernova",
+    "offtaker": "TBD",
+    "location": {
+      "city": "West Texas (site TBD)",
+      "county": "",
+      "state": "TX",
+      "lat": 31.5,
+      "lng": -102
+    },
+    "iso": "ERCOT",
+    "capacity_mw": 2500,
+    "status": "announced",
+    "online_year": 2027,
+    "linked_campus_ids": [],
+    "investment_usd_b": 5,
+    "sources": [
+      "https://justthenews.com/nation/states/center-square/surge-gas-fired-power-data-centers-texas-leading"
+    ],
+    "confidence": "low",
+    "notes": "Oil majors entering behind-the-meter power: ~2.5 GW of gas turbines reserved to power data centers using stranded/associated gas."
+  },
+  {
+    "id": "sb-energy-stargate-solar-tx",
+    "name": "SB Energy solar + storage (Stargate Texas)",
+    "type": "solar_storage",
+    "owner": "SB Energy (SoftBank)",
+    "offtaker": "OpenAI / Oracle (Stargate)",
+    "location": {
+      "city": "West/Central Texas",
+      "county": "",
+      "state": "TX",
+      "lat": 31.2,
+      "lng": -99.5
+    },
+    "iso": "ERCOT",
+    "capacity_mw": 2500,
+    "status": "under_construction",
+    "online_year": 2027,
+    "linked_campus_ids": [
+      "stargate-milam",
+      "stargate-abilene",
+      "stargate-shackelford"
+    ],
+    "investment_usd_b": 3,
+    "sources": [
+      "https://openai.com/index/five-new-stargate-sites/"
+    ],
+    "confidence": "low",
+    "notes": "SoftBank's SB Energy is building large solar+storage portfolios to firm Stargate's Texas sites alongside on-site gas."
+  },
+  {
+    "id": "fervo-google-ut",
+    "name": "Fervo Energy — Cape Station (enhanced geothermal)",
+    "type": "geothermal",
+    "owner": "Fervo Energy",
+    "offtaker": "Google",
+    "location": {
+      "city": "Milford",
+      "county": "Beaver",
+      "state": "UT",
+      "lat": 38.4,
+      "lng": -113.01
+    },
+    "iso": "WECC",
+    "capacity_mw": 400,
+    "status": "under_construction",
+    "online_year": 2028,
+    "linked_campus_ids": [],
+    "ppa": {
+      "type": "enhanced geothermal PPA"
+    },
+    "investment_usd_b": 2,
+    "sources": [
+      "https://introl.com/blog/nuclear-power-ai-data-centers-microsoft-google-amazon-2025"
+    ],
+    "confidence": "medium",
+    "notes": "Google-anchored enhanced geothermal; ~115 MW first phase scaling toward ~400 MW+ of 24/7 carbon-free baseload."
+  },
+  {
+    "id": "sage-meta-geothermal-tx",
+    "name": "Sage Geosystems geothermal (Meta)",
+    "type": "geothermal",
+    "owner": "Sage Geosystems",
+    "offtaker": "Meta",
+    "location": {
+      "city": "East Texas (site TBD)",
+      "county": "",
+      "state": "TX",
+      "lat": 31.8,
+      "lng": -95.5
+    },
+    "iso": "ERCOT",
+    "capacity_mw": 150,
+    "status": "announced",
+    "online_year": 2027,
+    "linked_campus_ids": [],
+    "ppa": {
+      "type": "geopressured geothermal"
+    },
+    "sources": [
+      "https://smrintel.com/nuclear-data-center-deals/"
+    ],
+    "confidence": "low",
+    "notes": "Meta's next-gen geothermal pilot (~150 MW) east of its data-center footprint."
+  },
+  {
+    "id": "bloom-fuelcells-multi",
+    "name": "Bloom Energy on-site fuel cells (multi-site)",
+    "type": "fuel_cell",
+    "owner": "Bloom Energy",
+    "offtaker": "Oracle / AEP / others",
+    "location": {
+      "city": "Multiple (US)",
+      "county": "",
+      "state": "TX",
+      "lat": 30.3,
+      "lng": -97.7
+    },
+    "iso": "ERCOT",
+    "capacity_mw": 1000,
+    "status": "under_construction",
+    "online_year": 2026,
+    "linked_campus_ids": [],
+    "sources": [
+      "https://www.bloomenergy.com/news/bloom-energy-announces-gigawatt-fuel-cell-procurement-agreement-with-aep-to-power-ai-data-centers/"
+    ],
+    "confidence": "low",
+    "notes": "Natural-gas solid-oxide fuel cells deployed for fast on-site power (Oracle and AEP among customers); aggregate marker, ~1 GW of orders."
+  },
+  {
+    "id": "hubbard-tx-gas",
+    "name": "Hubbard, TX gas-fired data campus",
+    "type": "gas_plant",
+    "owner": "Developer (TBD)",
+    "offtaker": "TBD",
+    "location": {
+      "city": "Hubbard",
+      "county": "Hill",
+      "state": "TX",
+      "lat": 31.86,
+      "lng": -96.79
+    },
+    "iso": "ERCOT",
+    "capacity_mw": 600,
+    "status": "announced",
+    "online_year": 2027,
+    "linked_campus_ids": [],
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/600mw-natural-gas-powered-data-center-campus-proposed-in-hubbard-texas/"
+    ],
+    "confidence": "low",
+    "notes": "Representative of the wave of mid-size (~600 MW) standalone gas-powered campuses proposed across Texas."
+  }
+]

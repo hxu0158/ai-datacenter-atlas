@@ -1,0 +1,2606 @@
+[
+  {
+    "id": "stargate-abilene",
+    "name": "Stargate — Abilene (Lancium Clean Campus)",
+    "operator": "OpenAI / Oracle / SoftBank (Stargate)",
+    "tenants": [
+      "OpenAI"
+    ],
+    "developer": "Crusoe / Lancium",
+    "partners": [
+      "Crusoe",
+      "Oracle",
+      "Nvidia",
+      "SoftBank",
+      "SB Energy"
+    ],
+    "location": {
+      "city": "Abilene",
+      "county": "Taylor",
+      "state": "TX",
+      "lat": 32.453,
+      "lng": -99.738
+    },
+    "grid": {
+      "iso": "ERCOT",
+      "utility": "Oncor / ERCOT"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 1200,
+      "mw_total_facility": 1500,
+      "accelerator_type": "Nvidia GB200 NVL72",
+      "gpu_estimate": 450000
+    },
+    "timeline": {
+      "announced": "2024",
+      "first_power_year": 2025,
+      "full_buildout_year": 2026
+    },
+    "investment_usd_b": 15,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "behind_the_meter": true,
+      "sources": [
+        {
+          "type": "onsite_gas",
+          "mw": 360,
+          "detail": "Lancium/Crusoe on-site gas turbines (bridge power)",
+          "status": "operational"
+        },
+        {
+          "type": "grid",
+          "detail": "ERCOT interconnection (Oncor)",
+          "status": "under_construction"
+        },
+        {
+          "type": "solar",
+          "detail": "SB Energy solar + storage (planned)",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200 NVL72",
+      "est_units": 450000,
+      "est_silicon_usd_b": 20
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://openai.com/index/five-new-stargate-sites/",
+      "https://www.cnbc.com/2025/09/23/openai-first-data-center-in-500-billion-stargate-project-up-in-texas.html",
+      "https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand",
+      "https://www.datacenterdynamics.com/en/news/openai-and-oracle-to-deploy-450000-gb200-gpus-at-stargate-abilene-data-center/"
+    ],
+    "confidence": "high",
+    "notes": "Flagship Stargate site. First 2 buildings (~0.3 GW) energized Sep 2025; ~4 of 8 buildings live by 2026; building toward ~1.2 GW. ~450k GB200 GPUs reported (DCD). Bridge power from on-site gas while ERCOT interconnect builds out."
+  },
+  {
+    "id": "stargate-shackelford",
+    "name": "Stargate — Shackelford County, TX",
+    "operator": "OpenAI / Oracle (Stargate)",
+    "tenants": [
+      "OpenAI"
+    ],
+    "developer": "Vantage Data Centers",
+    "partners": [
+      "Oracle",
+      "Vantage"
+    ],
+    "location": {
+      "city": "Albany",
+      "county": "Shackelford",
+      "state": "TX",
+      "lat": 32.724,
+      "lng": -99.296
+    },
+    "grid": {
+      "iso": "ERCOT",
+      "utility": "ERCOT"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 1100,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2025-09",
+      "first_power_year": 2026,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 12,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "behind_the_meter": true,
+      "sources": [
+        {
+          "type": "onsite_gas",
+          "detail": "On-site gas generation (ERCOT West)",
+          "status": "under_construction"
+        },
+        {
+          "type": "grid",
+          "detail": "ERCOT",
+          "status": "under_construction"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://openai.com/index/five-new-stargate-sites/"
+    ],
+    "confidence": "medium",
+    "notes": "One of five Stargate sites announced Sep 2025; developed with Vantage."
+  },
+  {
+    "id": "stargate-milam",
+    "name": "Stargate — Milam County, TX",
+    "operator": "OpenAI / Oracle / SoftBank (Stargate)",
+    "tenants": [
+      "OpenAI"
+    ],
+    "developer": "SB Energy / Oracle",
+    "partners": [
+      "Oracle",
+      "SB Energy",
+      "SoftBank"
+    ],
+    "location": {
+      "city": "Milano",
+      "county": "Milam",
+      "state": "TX",
+      "lat": 30.7,
+      "lng": -96.86
+    },
+    "grid": {
+      "iso": "ERCOT",
+      "utility": "ERCOT"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2025-09",
+      "first_power_year": 2026,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 11,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "behind_the_meter": true,
+      "sources": [
+        {
+          "type": "onsite_gas",
+          "detail": "On-site gas + SB Energy solar/storage",
+          "status": "under_construction"
+        },
+        {
+          "type": "solar",
+          "detail": "SB Energy solar + storage",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://openai.com/index/five-new-stargate-sites/"
+    ],
+    "confidence": "medium",
+    "notes": "Stargate site developed with SB Energy (SoftBank)."
+  },
+  {
+    "id": "stargate-dona-ana",
+    "name": "Stargate — Doña Ana County, NM",
+    "operator": "OpenAI / Oracle (Stargate)",
+    "tenants": [
+      "OpenAI"
+    ],
+    "developer": "Oracle",
+    "partners": [
+      "Oracle"
+    ],
+    "location": {
+      "city": "Santa Teresa",
+      "county": "Doña Ana",
+      "state": "NM",
+      "lat": 31.86,
+      "lng": -106.65
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "El Paso Electric"
+    },
+    "status": "announced",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2025-09",
+      "first_power_year": 2027,
+      "full_buildout_year": 2029
+    },
+    "investment_usd_b": 10,
+    "power": {
+      "primary_fuel": "mixed",
+      "behind_the_meter": true,
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "El Paso Electric (WECC)",
+          "status": "announced"
+        },
+        {
+          "type": "onsite_gas",
+          "detail": "On-site generation likely",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://openai.com/index/five-new-stargate-sites/"
+    ],
+    "confidence": "medium",
+    "notes": "Southern NM site near El Paso metro; WECC rather than ERCOT."
+  },
+  {
+    "id": "stargate-lordstown",
+    "name": "Stargate — Lordstown, OH",
+    "operator": "OpenAI / SoftBank (Stargate)",
+    "tenants": [
+      "OpenAI"
+    ],
+    "developer": "SB Energy",
+    "partners": [
+      "SoftBank",
+      "SB Energy"
+    ],
+    "location": {
+      "city": "Lordstown",
+      "county": "Trumbull",
+      "state": "OH",
+      "lat": 41.163,
+      "lng": -80.851
+    },
+    "grid": {
+      "iso": "PJM",
+      "utility": "AEP Ohio"
+    },
+    "status": "announced",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2025-09",
+      "first_power_year": 2027,
+      "full_buildout_year": 2029
+    },
+    "investment_usd_b": 10,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "PJM (AEP Ohio)",
+          "status": "announced"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://openai.com/index/five-new-stargate-sites/"
+    ],
+    "confidence": "medium",
+    "notes": "PJM site — exposed to PJM capacity-price pressure and interconnection queue."
+  },
+  {
+    "id": "stargate-wisconsin",
+    "name": "Stargate — Port Washington, WI",
+    "operator": "OpenAI / Oracle (Stargate)",
+    "tenants": [
+      "OpenAI"
+    ],
+    "developer": "Vantage Data Centers",
+    "partners": [
+      "Oracle",
+      "Vantage"
+    ],
+    "location": {
+      "city": "Port Washington",
+      "county": "Ozaukee",
+      "state": "WI",
+      "lat": 43.387,
+      "lng": -87.875
+    },
+    "grid": {
+      "iso": "MISO",
+      "utility": "We Energies"
+    },
+    "status": "announced",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2025-09",
+      "first_power_year": 2027,
+      "full_buildout_year": 2029
+    },
+    "investment_usd_b": 10,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "MISO (We Energies); new gas generation planned",
+          "status": "announced"
+        },
+        {
+          "type": "onsite_gas",
+          "detail": "WEC gas plants supporting load",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://openai.com/index/five-new-stargate-sites/"
+    ],
+    "confidence": "medium",
+    "notes": "The previously-unnamed 'Midwest' Stargate site; developed by Oracle + Vantage."
+  },
+  {
+    "id": "stargate-michigan",
+    "name": "Stargate — Saline Township, MI",
+    "operator": "OpenAI / Oracle (Stargate)",
+    "tenants": [
+      "OpenAI"
+    ],
+    "developer": "Related Digital / DTE",
+    "partners": [
+      "Oracle",
+      "DTE Energy"
+    ],
+    "location": {
+      "city": "Saline",
+      "county": "Washtenaw",
+      "state": "MI",
+      "lat": 42.166,
+      "lng": -83.781
+    },
+    "grid": {
+      "iso": "MISO",
+      "utility": "DTE Energy"
+    },
+    "status": "announced",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2025",
+      "first_power_year": 2028,
+      "full_buildout_year": 2030
+    },
+    "investment_usd_b": 10,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "MISO (DTE Energy)",
+          "status": "announced"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://openai.com/index/building-the-compute-infrastructure-for-the-intelligence-age/"
+    ],
+    "confidence": "low",
+    "notes": "Reported Stargate expansion site with DTE; details still firming up."
+  },
+  {
+    "id": "meta-hyperion",
+    "name": "Meta Hyperion — Richland Parish, LA",
+    "operator": "Meta",
+    "tenants": [
+      "Meta"
+    ],
+    "developer": "Meta",
+    "partners": [
+      "Entergy",
+      "Nvidia"
+    ],
+    "location": {
+      "city": "Holly Ridge",
+      "county": "Richland",
+      "state": "LA",
+      "lat": 32.41,
+      "lng": -91.66
+    },
+    "grid": {
+      "iso": "MISO",
+      "utility": "Entergy Louisiana"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 5000,
+      "mw_total_facility": 5000,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2024",
+      "first_power_year": 2026,
+      "full_buildout_year": 2030
+    },
+    "investment_usd_b": 50,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "behind_the_meter": false,
+      "sources": [
+        {
+          "type": "onsite_gas",
+          "mw": 2262,
+          "detail": "Entergy 3x new combined-cycle gas plants (~2.26 GW) for Meta",
+          "status": "under_construction"
+        },
+        {
+          "type": "grid",
+          "detail": "MISO (Entergy Louisiana)",
+          "status": "under_construction"
+        },
+        {
+          "type": "solar",
+          "detail": "Meta-procured solar + storage (~1.5 GW)",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300",
+      "est_silicon_usd_b": 90
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.power-eng.com/onsite-power/onsite-gas-turbines-reciprocating-engines-to-power-meta-data-center/",
+      "https://www.datacenterdynamics.com/"
+    ],
+    "confidence": "high",
+    "notes": "Meta's largest campus (~5 GW). Entergy building 3 new CCGTs (~2.26 GW) plus a solar fleet; first phase ~2026."
+  },
+  {
+    "id": "meta-prometheus",
+    "name": "Meta Prometheus — New Albany, OH",
+    "operator": "Meta",
+    "tenants": [
+      "Meta"
+    ],
+    "developer": "Meta",
+    "partners": [
+      "AEP Ohio",
+      "Nvidia"
+    ],
+    "location": {
+      "city": "New Albany",
+      "county": "Licking",
+      "state": "OH",
+      "lat": 40.083,
+      "lng": -82.79
+    },
+    "grid": {
+      "iso": "PJM",
+      "utility": "AEP Ohio"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Nvidia GB200"
+    },
+    "timeline": {
+      "announced": "2024",
+      "first_power_year": 2026,
+      "full_buildout_year": 2027
+    },
+    "investment_usd_b": 12,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "behind_the_meter": true,
+      "sources": [
+        {
+          "type": "onsite_gas",
+          "mw": 200,
+          "detail": "On-site gas turbines (bridge)",
+          "status": "under_construction"
+        },
+        {
+          "type": "grid",
+          "detail": "PJM (AEP Ohio)",
+          "status": "under_construction"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/meta-establishes-meta-compute-plans-multiple-gigawatt-plus-scale-ai-data-centers/"
+    ],
+    "confidence": "high",
+    "notes": "Meta's first ~1 GW 'titan cluster', targeted online 2026; among the first gigawatt-scale AI campuses."
+  },
+  {
+    "id": "meta-el-paso",
+    "name": "Meta — El Paso, TX",
+    "operator": "Meta",
+    "tenants": [
+      "Meta"
+    ],
+    "developer": "Meta",
+    "partners": [
+      "El Paso Electric"
+    ],
+    "location": {
+      "city": "El Paso",
+      "county": "El Paso",
+      "state": "TX",
+      "lat": 31.85,
+      "lng": -106.44
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "El Paso Electric"
+    },
+    "status": "announced",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2025",
+      "first_power_year": 2027,
+      "full_buildout_year": 2029
+    },
+    "investment_usd_b": 10,
+    "power": {
+      "primary_fuel": "mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "El Paso Electric (WECC)",
+          "status": "announced"
+        },
+        {
+          "type": "solar",
+          "detail": "Regional solar + storage",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.cnbc.com/2026/03/26/meta-to-spend-10-billion-on-ai-data-center-in-el-paso-1gw-by-2028.html"
+    ],
+    "confidence": "medium",
+    "notes": "~1 GW Meta campus announced for El Paso; WECC market."
+  },
+  {
+    "id": "meta-eagle-mountain",
+    "name": "Meta — Eagle Mountain, UT",
+    "operator": "Meta",
+    "tenants": [
+      "Meta"
+    ],
+    "developer": "Meta",
+    "partners": [
+      "Rocky Mountain Power"
+    ],
+    "location": {
+      "city": "Eagle Mountain",
+      "county": "Utah",
+      "state": "UT",
+      "lat": 40.314,
+      "lng": -112.006
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "Rocky Mountain Power"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 600,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2021",
+      "first_power_year": 2023,
+      "full_buildout_year": 2027
+    },
+    "investment_usd_b": 7,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "Rocky Mountain Power (WECC)",
+          "status": "operational"
+        },
+        {
+          "type": "solar",
+          "detail": "Solar PPAs",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/meta-to-expand-eagle-mountain-campus-again/"
+    ],
+    "confidence": "medium",
+    "notes": "Long-running Meta campus being expanded for AI."
+  },
+  {
+    "id": "meta-temple-tx",
+    "name": "Meta — Temple, TX",
+    "operator": "Meta",
+    "tenants": [
+      "Meta"
+    ],
+    "developer": "Meta",
+    "partners": [
+      "Oncor"
+    ],
+    "location": {
+      "city": "Temple",
+      "county": "Bell",
+      "state": "TX",
+      "lat": 31.098,
+      "lng": -97.343
+    },
+    "grid": {
+      "iso": "ERCOT",
+      "utility": "Oncor"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 152,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2025",
+      "first_power_year": 2027,
+      "full_buildout_year": 2029
+    },
+    "investment_usd_b": 0.8,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "ERCOT (Oncor)",
+          "status": "under_construction"
+        },
+        {
+          "type": "onsite_gas",
+          "detail": "On-site gas planned",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.constructiondive.com/news/je-dunn-meta-data-center-temple-texas/697450/"
+    ],
+    "confidence": "medium",
+    "notes": "Smaller Meta campus (~152 MW, ~$800M), redesigned for AI, completing 2026 — corrected down from an earlier ~0.9 GW overestimate that conflated it with a separate gigawatt West-Texas/El Paso site."
+  },
+  {
+    "id": "meta-montgomery-al",
+    "name": "Meta — Montgomery, AL",
+    "operator": "Meta",
+    "tenants": [
+      "Meta"
+    ],
+    "developer": "Meta",
+    "partners": [
+      "Alabama Power"
+    ],
+    "location": {
+      "city": "Montgomery",
+      "county": "Montgomery",
+      "state": "AL",
+      "lat": 32.366,
+      "lng": -86.3
+    },
+    "grid": {
+      "iso": "SERC",
+      "utility": "Alabama Power"
+    },
+    "status": "announced",
+    "capacity": {
+      "mw_it_full": 800,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2025",
+      "first_power_year": 2028,
+      "full_buildout_year": 2030
+    },
+    "investment_usd_b": 8,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "Southern Co / Alabama Power (SERC)",
+          "status": "announced"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/meta-to-expand-montgomery-data-center/"
+    ],
+    "confidence": "low",
+    "notes": "Southeast Meta campus in Southern Company territory."
+  },
+  {
+    "id": "meta-sandston-va",
+    "name": "Meta — Sandston (Henrico), VA",
+    "operator": "Meta",
+    "tenants": [
+      "Meta"
+    ],
+    "developer": "Meta",
+    "partners": [
+      "Dominion Energy"
+    ],
+    "location": {
+      "city": "Sandston",
+      "county": "Henrico",
+      "state": "VA",
+      "lat": 37.526,
+      "lng": -77.317
+    },
+    "grid": {
+      "iso": "PJM",
+      "utility": "Dominion Energy"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 500,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2018",
+      "first_power_year": 2020,
+      "full_buildout_year": 2027
+    },
+    "investment_usd_b": 6,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "PJM (Dominion)",
+          "status": "operational"
+        },
+        {
+          "type": "solar",
+          "detail": "Solar PPAs",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://www.datacenterknowledge.com/"
+    ],
+    "confidence": "medium",
+    "notes": "Established Meta campus in PJM/Dominion territory, expanding for AI."
+  },
+  {
+    "id": "msft-fairwater-wi",
+    "name": "Microsoft Fairwater — Mount Pleasant, WI",
+    "operator": "Microsoft",
+    "tenants": [
+      "Microsoft",
+      "OpenAI"
+    ],
+    "developer": "Microsoft",
+    "partners": [
+      "We Energies",
+      "Nvidia"
+    ],
+    "location": {
+      "city": "Mount Pleasant",
+      "county": "Racine",
+      "state": "WI",
+      "lat": 42.708,
+      "lng": -87.862
+    },
+    "grid": {
+      "iso": "MISO",
+      "utility": "We Energies"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 900,
+      "accelerator_type": "Nvidia GB200 NVL72"
+    },
+    "timeline": {
+      "announced": "2024",
+      "first_power_year": 2026,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 10,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "MISO (We Energies); new gas generation",
+          "status": "under_construction"
+        },
+        {
+          "type": "onsite_gas",
+          "detail": "We Energies gas plants",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200 NVL72"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.nextbigfuture.com/2025/11/microsoft-has-largest-multi-site-ai-data-center-at-2-gigawatts.html"
+    ],
+    "confidence": "medium",
+    "notes": "Microsoft's 'Fairwater' closed-loop liquid-cooled design; first facility online early 2026. Part of a ~2 GW multi-site AI WAN."
+  },
+  {
+    "id": "msft-fairwater-atlanta",
+    "name": "Microsoft Fairwater 2 — Atlanta, GA",
+    "operator": "Microsoft",
+    "tenants": [
+      "Microsoft",
+      "OpenAI"
+    ],
+    "developer": "Microsoft",
+    "partners": [
+      "Georgia Power",
+      "Nvidia"
+    ],
+    "location": {
+      "city": "Palmetto",
+      "county": "Fulton",
+      "state": "GA",
+      "lat": 33.52,
+      "lng": -84.66
+    },
+    "grid": {
+      "iso": "SERC",
+      "utility": "Georgia Power"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 900,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2025",
+      "first_power_year": 2026,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 10,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "Southern Co / Georgia Power (SERC)",
+          "status": "under_construction"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.nextbigfuture.com/2025/11/microsoft-has-largest-multi-site-ai-data-center-at-2-gigawatts.html"
+    ],
+    "confidence": "medium",
+    "notes": "Second Fairwater site, linked to WI via dedicated-fiber AI WAN."
+  },
+  {
+    "id": "msft-san-antonio",
+    "name": "Microsoft — San Antonio, TX",
+    "operator": "Microsoft",
+    "tenants": [
+      "Microsoft",
+      "OpenAI"
+    ],
+    "developer": "Microsoft",
+    "partners": [
+      "CPS Energy"
+    ],
+    "location": {
+      "city": "San Antonio",
+      "county": "Bexar",
+      "state": "TX",
+      "lat": 29.424,
+      "lng": -98.494
+    },
+    "grid": {
+      "iso": "ERCOT",
+      "utility": "CPS Energy"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 700,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2023",
+      "first_power_year": 2025,
+      "full_buildout_year": 2027
+    },
+    "investment_usd_b": 7,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "ERCOT (CPS Energy)",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://techcrunch.com/2025/10/09/while-openai-races-to-build-ai-data-centers-nadella-reminds-us-that-microsoft-already-has-them/"
+    ],
+    "confidence": "medium",
+    "notes": "Microsoft/OpenAI San Antonio cluster in ERCOT."
+  },
+  {
+    "id": "msft-goodyear-az",
+    "name": "Microsoft — Goodyear / Phoenix, AZ",
+    "operator": "Microsoft",
+    "tenants": [
+      "Microsoft"
+    ],
+    "developer": "Microsoft",
+    "partners": [
+      "APS / SRP"
+    ],
+    "location": {
+      "city": "Goodyear",
+      "county": "Maricopa",
+      "state": "AZ",
+      "lat": 33.435,
+      "lng": -112.358
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "Arizona Public Service"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 600,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2019",
+      "first_power_year": 2021,
+      "full_buildout_year": 2027
+    },
+    "investment_usd_b": 5,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "APS / SRP (WECC)",
+          "status": "operational"
+        },
+        {
+          "type": "solar",
+          "detail": "Arizona solar PPAs",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://futurism.com/the-byte/microsoft-arizona-water-ai"
+    ],
+    "confidence": "medium",
+    "notes": "Phoenix-metro Azure region expanding into AI capacity."
+  },
+  {
+    "id": "msft-west-des-moines-ia",
+    "name": "Microsoft — West Des Moines, IA",
+    "operator": "Microsoft",
+    "tenants": [
+      "Microsoft",
+      "OpenAI"
+    ],
+    "developer": "Microsoft",
+    "partners": [
+      "MidAmerican Energy"
+    ],
+    "location": {
+      "city": "West Des Moines",
+      "county": "Polk",
+      "state": "IA",
+      "lat": 41.577,
+      "lng": -93.711
+    },
+    "grid": {
+      "iso": "MISO",
+      "utility": "MidAmerican Energy"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 700,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2014",
+      "first_power_year": 2016,
+      "full_buildout_year": 2027
+    },
+    "investment_usd_b": 6,
+    "power": {
+      "primary_fuel": "wind",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "MISO (MidAmerican, high wind)",
+          "status": "operational"
+        },
+        {
+          "type": "wind",
+          "detail": "Iowa wind PPAs",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://news.microsoft.com/source/features/ai/west-des-moines-iowa-ai-supercomputer/"
+    ],
+    "confidence": "medium",
+    "notes": "Major Azure/OpenAI training region; historically where large GPT models were trained."
+  },
+  {
+    "id": "msft-quincy-wa",
+    "name": "Microsoft — Quincy, WA",
+    "operator": "Microsoft",
+    "tenants": [
+      "Microsoft"
+    ],
+    "developer": "Microsoft",
+    "partners": [
+      "Grant County PUD"
+    ],
+    "location": {
+      "city": "Quincy",
+      "county": "Grant",
+      "state": "WA",
+      "lat": 47.234,
+      "lng": -119.852
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "Grant County PUD"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 500,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2006",
+      "first_power_year": 2007,
+      "full_buildout_year": 2026
+    },
+    "investment_usd_b": 4,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "hydro",
+          "detail": "Columbia River hydro (Grant County PUD)",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://www.opb.org/article/2026/01/17/quincy-washington-microsoft-data-center/"
+    ],
+    "confidence": "medium",
+    "notes": "Hydro-powered legacy Microsoft campus; low-carbon baseload advantage."
+  },
+  {
+    "id": "aws-rainier-indiana",
+    "name": "AWS Project Rainier — New Carlisle, IN",
+    "operator": "Amazon (AWS)",
+    "tenants": [
+      "Anthropic"
+    ],
+    "developer": "AWS",
+    "partners": [
+      "Anthropic",
+      "AEP / I&M"
+    ],
+    "location": {
+      "city": "New Carlisle",
+      "county": "St. Joseph",
+      "state": "IN",
+      "lat": 41.701,
+      "lng": -86.508
+    },
+    "grid": {
+      "iso": "MISO",
+      "utility": "Indiana Michigan Power (AEP)"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 2200,
+      "mw_total_facility": 2200,
+      "accelerator_type": "AWS Trainium2",
+      "gpu_estimate": 500000
+    },
+    "timeline": {
+      "announced": "2024-10",
+      "first_power_year": 2025,
+      "full_buildout_year": 2027
+    },
+    "investment_usd_b": 11,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "MISO (I&M / AEP); ~2.2 GW at full 30-building build",
+          "status": "under_construction"
+        },
+        {
+          "type": "onsite_gas",
+          "detail": "On-site generation under review",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Amazon",
+      "chip": "Trainium2",
+      "est_units": 500000,
+      "est_silicon_usd_b": 15
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster",
+      "https://www.datacenterdynamics.com/en/news/aws-activates-project-rainier-cluster-of-nearly-500000-trainium2-chips/",
+      "https://www.cnbc.com/2025/10/29/amazon-opens-11-billion-ai-data-center-project-rainier-in-indiana.html"
+    ],
+    "confidence": "high",
+    "notes": "Built for Anthropic. ~500k Trainium2 live; full site ~30 buildings, up to ~2.2 GW, targeting 1M+ Trainium2 chips. Custom-ASIC (Trainium), not Nvidia."
+  },
+  {
+    "id": "aws-rainier-mississippi",
+    "name": "AWS — Madison County, MS",
+    "operator": "Amazon (AWS)",
+    "tenants": [
+      "AWS",
+      "Anthropic"
+    ],
+    "developer": "AWS",
+    "partners": [
+      "Entergy Mississippi"
+    ],
+    "location": {
+      "city": "Canton",
+      "county": "Madison",
+      "state": "MS",
+      "lat": 32.64,
+      "lng": -90.04
+    },
+    "grid": {
+      "iso": "SERC",
+      "utility": "Entergy Mississippi"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 1500,
+      "accelerator_type": "AWS Trainium / Nvidia"
+    },
+    "timeline": {
+      "announced": "2024",
+      "first_power_year": 2026,
+      "full_buildout_year": 2029
+    },
+    "investment_usd_b": 16,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "Entergy Mississippi (SERC); new gas + solar",
+          "status": "under_construction"
+        },
+        {
+          "type": "solar",
+          "detail": "Entergy solar",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Amazon",
+      "chip": "Trainium / Nvidia"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.aboutamazon.com/news/company-news/amazon-25-billion-mississippi-data-centers"
+    ],
+    "confidence": "medium",
+    "notes": "Large AWS Mississippi investment (~$16B); Trainium + Nvidia mix."
+  },
+  {
+    "id": "aws-northern-virginia",
+    "name": "AWS — Northern Virginia (Data Center Alley)",
+    "operator": "Amazon (AWS)",
+    "tenants": [
+      "AWS"
+    ],
+    "developer": "AWS",
+    "partners": [
+      "Dominion Energy"
+    ],
+    "location": {
+      "city": "Ashburn",
+      "county": "Loudoun",
+      "state": "VA",
+      "lat": 39.043,
+      "lng": -77.487
+    },
+    "grid": {
+      "iso": "PJM",
+      "utility": "Dominion Energy"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 3000,
+      "accelerator_type": "Nvidia / Trainium"
+    },
+    "timeline": {
+      "announced": "2010",
+      "first_power_year": 2012,
+      "full_buildout_year": 2030
+    },
+    "investment_usd_b": 35,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "PJM (Dominion) — world's densest data-center cluster",
+          "status": "operational"
+        },
+        {
+          "type": "nuclear_existing",
+          "detail": "PJM nuclear baseload",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Mixed",
+      "chip": "Nvidia + Trainium"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://www.washingtonpost.com/climate-environment/interactive/2025/giant-data-centers-energy-pollution/"
+    ],
+    "confidence": "low",
+    "notes": "Representative marker for AWS's multi-GW Loudoun County footprint — 'Data Center Alley', the largest concentration of capacity in the world. MW shown is an order-of-magnitude estimate."
+  },
+  {
+    "id": "aws-pennsylvania-susquehanna",
+    "name": "AWS — Salem Township, PA (Susquehanna)",
+    "operator": "Amazon (AWS)",
+    "tenants": [
+      "AWS"
+    ],
+    "developer": "AWS",
+    "partners": [
+      "Talen Energy"
+    ],
+    "location": {
+      "city": "Berwick",
+      "county": "Luzerne",
+      "state": "PA",
+      "lat": 41.09,
+      "lng": -76.14
+    },
+    "grid": {
+      "iso": "PJM",
+      "utility": "PPL / PJM"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 960,
+      "accelerator_type": "Nvidia / Trainium"
+    },
+    "timeline": {
+      "announced": "2024",
+      "first_power_year": 2026,
+      "full_buildout_year": 2030
+    },
+    "investment_usd_b": 20,
+    "power": {
+      "primary_fuel": "nuclear",
+      "sources": [
+        {
+          "type": "nuclear_existing",
+          "mw": 1920,
+          "detail": "Talen Susquehanna nuclear PPA (1,920 MW to AWS through 2042)",
+          "status": "operational"
+        }
+      ],
+      "ppas": [
+        {
+          "counterparty": "Talen Energy",
+          "asset": "Susquehanna Steam Electric Station",
+          "mw": 1920,
+          "term_years": 17,
+          "type": "nuclear existing"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Mixed",
+      "chip": "Nvidia + Trainium"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://smrintel.com/nuclear-data-center-deals/"
+    ],
+    "confidence": "medium",
+    "notes": "Anchored to Talen's Susquehanna nuclear plant; FERC rejected the behind-the-meter version, so it now runs through a front-of-meter PPA (1,920 MW)."
+  },
+  {
+    "id": "aws-ohio-newalbany",
+    "name": "AWS — New Albany / Central Ohio",
+    "operator": "Amazon (AWS)",
+    "tenants": [
+      "AWS"
+    ],
+    "developer": "AWS",
+    "partners": [
+      "AEP Ohio"
+    ],
+    "location": {
+      "city": "New Albany",
+      "county": "Licking",
+      "state": "OH",
+      "lat": 40.062,
+      "lng": -82.755
+    },
+    "grid": {
+      "iso": "PJM",
+      "utility": "AEP Ohio"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 1200,
+      "accelerator_type": "Nvidia / Trainium"
+    },
+    "timeline": {
+      "announced": "2015",
+      "first_power_year": 2016,
+      "full_buildout_year": 2030
+    },
+    "investment_usd_b": 23,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "PJM (AEP Ohio)",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Mixed",
+      "chip": "Nvidia + Trainium"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/aws-to-invest-23bn-in-ohio-by-2030/"
+    ],
+    "confidence": "low",
+    "notes": "AWS's large Central Ohio (US-East-2) cluster; ~$23B announced Ohio expansion."
+  },
+  {
+    "id": "google-council-bluffs-ia",
+    "name": "Google — Council Bluffs, IA",
+    "operator": "Google",
+    "tenants": [
+      "Google",
+      "Anthropic"
+    ],
+    "developer": "Google",
+    "partners": [
+      "MidAmerican Energy"
+    ],
+    "location": {
+      "city": "Council Bluffs",
+      "county": "Pottawattamie",
+      "state": "IA",
+      "lat": 41.262,
+      "lng": -95.86
+    },
+    "grid": {
+      "iso": "MISO",
+      "utility": "MidAmerican Energy"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 900,
+      "accelerator_type": "Google TPU v6/v7"
+    },
+    "timeline": {
+      "announced": "2007",
+      "first_power_year": 2009,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 12,
+    "power": {
+      "primary_fuel": "wind",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "MISO (MidAmerican, high wind)",
+          "status": "operational"
+        },
+        {
+          "type": "wind",
+          "detail": "Iowa wind PPAs",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Google",
+      "chip": "TPU v6/v7"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/google-pledges-7bn-to-expand-iowa-data-center-footprint/"
+    ],
+    "confidence": "medium",
+    "notes": "Major Google TPU region; Anthropic runs Claude on Google TPUs (expanded to 1M+ TPUs in 2025-26)."
+  },
+  {
+    "id": "google-the-dalles-or",
+    "name": "Google — The Dalles, OR",
+    "operator": "Google",
+    "tenants": [
+      "Google"
+    ],
+    "developer": "Google",
+    "partners": [
+      "Northern Wasco PUD"
+    ],
+    "location": {
+      "city": "The Dalles",
+      "county": "Wasco",
+      "state": "OR",
+      "lat": 45.601,
+      "lng": -121.183
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "Northern Wasco County PUD"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 500,
+      "accelerator_type": "Google TPU"
+    },
+    "timeline": {
+      "announced": "2006",
+      "first_power_year": 2006,
+      "full_buildout_year": 2027
+    },
+    "investment_usd_b": 4,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "hydro",
+          "detail": "Columbia River hydro",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Google",
+      "chip": "TPU"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://columbiainsight.org/google-unwrapped/"
+    ],
+    "confidence": "medium",
+    "notes": "Google's original owned data center, hydro-powered."
+  },
+  {
+    "id": "google-new-albany-oh",
+    "name": "Google — New Albany, OH",
+    "operator": "Google",
+    "tenants": [
+      "Google"
+    ],
+    "developer": "Google",
+    "partners": [
+      "AEP Ohio"
+    ],
+    "location": {
+      "city": "New Albany",
+      "county": "Licking",
+      "state": "OH",
+      "lat": 40.1,
+      "lng": -82.8
+    },
+    "grid": {
+      "iso": "PJM",
+      "utility": "AEP Ohio"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 700,
+      "accelerator_type": "Google TPU"
+    },
+    "timeline": {
+      "announced": "2019",
+      "first_power_year": 2022,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 7,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "PJM (AEP Ohio)",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Google",
+      "chip": "TPU"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/google-plans-1bn-new-albany-data-center-expansion-acquires-618-acres-for-more-data-centers/"
+    ],
+    "confidence": "low",
+    "notes": "Google Central Ohio campus expansion."
+  },
+  {
+    "id": "google-armstrong-tx",
+    "name": "Google — Armstrong County, TX (Panhandle)",
+    "operator": "Google",
+    "tenants": [
+      "Google"
+    ],
+    "developer": "Google",
+    "partners": [
+      "Xcel / SPS"
+    ],
+    "location": {
+      "city": "Wayside",
+      "county": "Armstrong",
+      "state": "TX",
+      "lat": 34.95,
+      "lng": -101.36
+    },
+    "grid": {
+      "iso": "SPP",
+      "utility": "Southwestern Public Service (Xcel)"
+    },
+    "status": "announced",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Google TPU"
+    },
+    "timeline": {
+      "announced": "2025",
+      "first_power_year": 2027,
+      "full_buildout_year": 2029
+    },
+    "investment_usd_b": 9,
+    "power": {
+      "primary_fuel": "wind",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "SPP (Xcel/SPS) — high wind region",
+          "status": "announced"
+        },
+        {
+          "type": "wind",
+          "detail": "Panhandle wind + solar",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Google",
+      "chip": "TPU"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://abc7amarillo.com/news/local/google-announces-new-data-center-in-armstrong-county-texas-judge-adam-ensey-crusoe-energy-ercot-southwest-power-pool-claude-texas"
+    ],
+    "confidence": "low",
+    "notes": "Texas Panhandle is SPP, not ERCOT; abundant wind."
+  },
+  {
+    "id": "google-mesa-az",
+    "name": "Google — Mesa, AZ",
+    "operator": "Google",
+    "tenants": [
+      "Google"
+    ],
+    "developer": "Google",
+    "partners": [
+      "SRP"
+    ],
+    "location": {
+      "city": "Mesa",
+      "county": "Maricopa",
+      "state": "AZ",
+      "lat": 33.415,
+      "lng": -111.612
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "Salt River Project"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 600,
+      "accelerator_type": "Google TPU"
+    },
+    "timeline": {
+      "announced": "2019",
+      "first_power_year": 2023,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 6,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "SRP (WECC)",
+          "status": "operational"
+        },
+        {
+          "type": "solar",
+          "detail": "Arizona solar",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Google",
+      "chip": "TPU"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/google-breaks-ground-on-mesa-data-center-campus-in-arizona/"
+    ],
+    "confidence": "medium",
+    "notes": "Phoenix-metro Google campus."
+  },
+  {
+    "id": "google-berkeley-sc",
+    "name": "Google — Berkeley County, SC",
+    "operator": "Google",
+    "tenants": [
+      "Google"
+    ],
+    "developer": "Google",
+    "partners": [
+      "Santee Cooper / Dominion"
+    ],
+    "location": {
+      "city": "Moncks Corner",
+      "county": "Berkeley",
+      "state": "SC",
+      "lat": 33.196,
+      "lng": -80.014
+    },
+    "grid": {
+      "iso": "SERC",
+      "utility": "Santee Cooper"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 500,
+      "accelerator_type": "Google TPU"
+    },
+    "timeline": {
+      "announced": "2007",
+      "first_power_year": 2009,
+      "full_buildout_year": 2027
+    },
+    "investment_usd_b": 4,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "Santee Cooper (SERC)",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Google",
+      "chip": "TPU"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://governor.sc.gov/news/2024-09/google-grows-south-carolina-footprint-new-dorchester-county-operations-expansion"
+    ],
+    "confidence": "low",
+    "notes": "Southeast Google campus."
+  },
+  {
+    "id": "xai-colossus1-memphis",
+    "name": "xAI Colossus 1 — Memphis, TN",
+    "operator": "xAI",
+    "tenants": [
+      "xAI"
+    ],
+    "developer": "xAI",
+    "partners": [
+      "Nvidia",
+      "Dell",
+      "Supermicro",
+      "Solaris/VoltaGrid"
+    ],
+    "location": {
+      "city": "Memphis",
+      "county": "Shelby",
+      "state": "TN",
+      "lat": 35.063,
+      "lng": -90.045
+    },
+    "grid": {
+      "iso": "TVA",
+      "utility": "MLGW / TVA"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 500,
+      "accelerator_type": "Nvidia H100/H200/GB200",
+      "gpu_estimate": 230000
+    },
+    "timeline": {
+      "announced": "2024",
+      "first_power_year": 2024,
+      "full_buildout_year": 2026
+    },
+    "investment_usd_b": 7,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "behind_the_meter": true,
+      "sources": [
+        {
+          "type": "onsite_gas",
+          "mw": 420,
+          "detail": "On-site mobile gas turbines (Solaris/VoltaGrid) + permitted gas plant",
+          "status": "operational"
+        },
+        {
+          "type": "grid",
+          "detail": "TVA / MLGW",
+          "status": "operational"
+        },
+        {
+          "type": "storage",
+          "detail": "Tesla Megapack buffering",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "H100/H200/GB200",
+      "est_units": 230000,
+      "est_silicon_usd_b": 9
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.datacenterdynamics.com/",
+      "https://introl.com/blog/nuclear-power-ai-data-centers-microsoft-google-amazon-2025"
+    ],
+    "confidence": "high",
+    "notes": "Fastest-built large cluster (~122 days to first training). Heavy on-site gas drew air-permit scrutiny in Memphis. ~230k GPUs."
+  },
+  {
+    "id": "xai-colossus2-memphis",
+    "name": "xAI Colossus 2 — Memphis, TN",
+    "operator": "xAI",
+    "tenants": [
+      "xAI"
+    ],
+    "developer": "xAI",
+    "partners": [
+      "Nvidia",
+      "Solaris/VoltaGrid"
+    ],
+    "location": {
+      "city": "Memphis",
+      "county": "Shelby",
+      "state": "TN",
+      "lat": 35.1,
+      "lng": -90.07
+    },
+    "grid": {
+      "iso": "TVA",
+      "utility": "MLGW / TVA"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 1100,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2025",
+      "first_power_year": 2025,
+      "full_buildout_year": 2026
+    },
+    "investment_usd_b": 12,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "behind_the_meter": true,
+      "sources": [
+        {
+          "type": "onsite_gas",
+          "detail": "On-site gas turbines (~1 GW)",
+          "status": "under_construction"
+        },
+        {
+          "type": "grid",
+          "detail": "TVA / MLGW",
+          "status": "under_construction"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/xai-deploys-19-natural-gas-turbines-at-colossus-2-data-center-in-southaven-mississippi-report/"
+    ],
+    "confidence": "medium",
+    "notes": "Second Memphis-area Colossus campus targeting ~1 GW+ on a ~12-month timeline. Its ~19 on-site gas turbines are sited just across the state line in Southaven, MS."
+  },
+  {
+    "id": "anthropic-fluidstack-tx",
+    "name": "Anthropic / Fluidstack — Texas",
+    "operator": "Anthropic",
+    "tenants": [
+      "Anthropic"
+    ],
+    "developer": "Fluidstack",
+    "partners": [
+      "Fluidstack"
+    ],
+    "location": {
+      "city": "West Texas (site TBD)",
+      "county": "",
+      "state": "TX",
+      "lat": 32,
+      "lng": -101.5
+    },
+    "grid": {
+      "iso": "ERCOT",
+      "utility": "ERCOT"
+    },
+    "status": "announced",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Mixed (TPU / Trainium / Nvidia)"
+    },
+    "timeline": {
+      "announced": "2025-11",
+      "first_power_year": 2026,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 25,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "ERCOT",
+          "status": "announced"
+        },
+        {
+          "type": "onsite_gas",
+          "detail": "On-site gas likely",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Mixed",
+      "chip": "TPU / Trainium / Nvidia"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.cnbc.com/2025/11/12/anthropic-ai-data-centers-texas-new-york.html"
+    ],
+    "confidence": "low",
+    "notes": "Part of Anthropic's ~$50B Fluidstack-built infrastructure plan (TX + NY). Exact site/coordinates approximate."
+  },
+  {
+    "id": "anthropic-fluidstack-ny",
+    "name": "Anthropic / Fluidstack — New York",
+    "operator": "Anthropic",
+    "tenants": [
+      "Anthropic"
+    ],
+    "developer": "Fluidstack",
+    "partners": [
+      "Fluidstack"
+    ],
+    "location": {
+      "city": "Upstate NY (site TBD)",
+      "county": "",
+      "state": "NY",
+      "lat": 43.05,
+      "lng": -76.15
+    },
+    "grid": {
+      "iso": "NYISO",
+      "utility": "NYISO"
+    },
+    "status": "announced",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Mixed (TPU / Trainium / Nvidia)"
+    },
+    "timeline": {
+      "announced": "2025-11",
+      "first_power_year": 2027,
+      "full_buildout_year": 2029
+    },
+    "investment_usd_b": 25,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "NYISO",
+          "status": "announced"
+        },
+        {
+          "type": "nuclear_existing",
+          "detail": "Upstate NY nuclear baseload",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Mixed",
+      "chip": "TPU / Trainium / Nvidia"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.anthropic.com/news/anthropic-invests-50-billion-in-american-ai-infrastructure"
+    ],
+    "confidence": "low",
+    "notes": "Second leg of the Anthropic/Fluidstack plan; upstate NY has spare nuclear/hydro baseload. Coordinates approximate."
+  },
+  {
+    "id": "coreweave-denton-tx",
+    "name": "CoreWeave / Core Scientific — Denton, TX",
+    "operator": "CoreWeave",
+    "tenants": [
+      "CoreWeave",
+      "Microsoft",
+      "OpenAI"
+    ],
+    "developer": "Core Scientific",
+    "partners": [
+      "Core Scientific",
+      "Nvidia"
+    ],
+    "location": {
+      "city": "Denton",
+      "county": "Denton",
+      "state": "TX",
+      "lat": 33.215,
+      "lng": -97.133
+    },
+    "grid": {
+      "iso": "ERCOT",
+      "utility": "Denton Municipal / ERCOT"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 500,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2024",
+      "first_power_year": 2025,
+      "full_buildout_year": 2027
+    },
+    "investment_usd_b": 6,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "ERCOT (former crypto-mining site converted to AI)",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/coreweave-deploys-16000-gpus-at-delayed-data-center-in-denton-texas/"
+    ],
+    "confidence": "medium",
+    "notes": "Neocloud conversion of Core Scientific crypto sites to GPU capacity (CoreWeave acquired Core Scientific)."
+  },
+  {
+    "id": "poolside-horizon-tx",
+    "name": "Poolside Project Horizon — West Texas",
+    "operator": "Poolside",
+    "tenants": [
+      "Poolside"
+    ],
+    "developer": "CoreWeave",
+    "partners": [
+      "CoreWeave",
+      "Nvidia"
+    ],
+    "location": {
+      "city": "West Texas (Permian)",
+      "county": "Ector",
+      "state": "TX",
+      "lat": 31.85,
+      "lng": -102.37
+    },
+    "grid": {
+      "iso": "ERCOT",
+      "utility": "ERCOT"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 2000,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2025",
+      "first_power_year": 2026,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 14,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "behind_the_meter": true,
+      "sources": [
+        {
+          "type": "onsite_gas",
+          "detail": "On-site Permian-basin gas (behind-the-meter)",
+          "status": "under_construction"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://poolside.ai/blog/announcing-project-horizon"
+    ],
+    "confidence": "low",
+    "notes": "~2 GW West Texas campus using stranded Permian gas; CoreWeave-backed."
+  },
+  {
+    "id": "switch-citadel-nv",
+    "name": "Switch Citadel — Tahoe Reno, NV",
+    "operator": "Switch",
+    "tenants": [
+      "Switch",
+      "Multiple"
+    ],
+    "developer": "Switch",
+    "partners": [
+      "NV Energy"
+    ],
+    "location": {
+      "city": "McCarran",
+      "county": "Storey",
+      "state": "NV",
+      "lat": 39.534,
+      "lng": -119.44
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "NV Energy"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 700,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2017",
+      "first_power_year": 2019,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 5,
+    "power": {
+      "primary_fuel": "solar_storage",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "NV Energy (WECC)",
+          "status": "operational"
+        },
+        {
+          "type": "solar",
+          "detail": "Nevada solar + storage",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://www.prnewswire.com/news-releases/switch-breaks-ground-on-second-and-third-tahoe-reno-data-centers-following-multi-megawatt-expansions-with-global-e-commerce-and-semiconductor-clients-301177069.html"
+    ],
+    "confidence": "low",
+    "notes": "Large Tahoe-Reno colo campus; multi-tenant, increasingly AI."
+  },
+  {
+    "id": "homer-city-pa",
+    "name": "Homer City Energy Campus — PA",
+    "operator": "Homer City Redevelopment",
+    "tenants": [
+      "TBD (hyperscaler)"
+    ],
+    "developer": "Homer City Redevelopment / Knighthead",
+    "partners": [
+      "GE Vernova",
+      "Kiewit"
+    ],
+    "location": {
+      "city": "Homer City",
+      "county": "Indiana",
+      "state": "PA",
+      "lat": 40.512,
+      "lng": -79.162
+    },
+    "grid": {
+      "iso": "PJM",
+      "utility": "PJM"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 3200,
+      "mw_total_facility": 4500,
+      "accelerator_type": "TBD"
+    },
+    "timeline": {
+      "announced": "2025",
+      "first_power_year": 2027,
+      "full_buildout_year": 2030
+    },
+    "investment_usd_b": 15,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "behind_the_meter": true,
+      "sources": [
+        {
+          "type": "onsite_gas",
+          "mw": 4500,
+          "detail": "Retired coal plant -> ~4.5 GW on-site gas (7x GE Vernova turbines) for behind-the-meter data center campus",
+          "status": "under_construction"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Unknown"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.power-eng.com/gas/turbines/data-centers-drive-record-surge-in-ge-vernova-power-equipment-orders-as-turbine-slots-tighten-through-2030/"
+    ],
+    "confidence": "medium",
+    "notes": "Former largest coal plant in PA being redeveloped into one of the largest gas-powered behind-the-meter AI campuses; ~4.5 GW on-site generation."
+  },
+  {
+    "id": "qts-fayetteville-ga",
+    "name": "QTS — Fayetteville, GA",
+    "operator": "QTS (Blackstone)",
+    "tenants": [
+      "Microsoft",
+      "Multiple"
+    ],
+    "developer": "QTS",
+    "partners": [
+      "Georgia Power"
+    ],
+    "location": {
+      "city": "Fayetteville",
+      "county": "Fayette",
+      "state": "GA",
+      "lat": 33.448,
+      "lng": -84.455
+    },
+    "grid": {
+      "iso": "SERC",
+      "utility": "Georgia Power"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 800,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2023",
+      "first_power_year": 2025,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 6,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "Georgia Power (SERC) — a major driver of GA load growth",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://rebusinessonline.com/qts-buys-615-acres-in-fayetteville-georgia-for-worlds-largest-multi-tenant-data-center-campus/"
+    ],
+    "confidence": "low",
+    "notes": "QTS (Blackstone-owned) wholesale campus leased to hyperscalers; Atlanta is a top US growth market."
+  },
+  {
+    "id": "qts-phoenix-az",
+    "name": "QTS — Phoenix, AZ",
+    "operator": "QTS (Blackstone)",
+    "tenants": [
+      "Multiple"
+    ],
+    "developer": "QTS",
+    "partners": [
+      "APS"
+    ],
+    "location": {
+      "city": "Phoenix",
+      "county": "Maricopa",
+      "state": "AZ",
+      "lat": 33.46,
+      "lng": -112.18
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "Arizona Public Service"
+    },
+    "status": "under_construction",
+    "capacity": {
+      "mw_it_full": 700,
+      "accelerator_type": "Nvidia"
+    },
+    "timeline": {
+      "announced": "2022",
+      "first_power_year": 2024,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 5,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "APS (WECC)",
+          "status": "operational"
+        },
+        {
+          "type": "solar",
+          "detail": "Arizona solar",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/qts-files-for-750mw-campus-in-phoenix-arizona/"
+    ],
+    "confidence": "low",
+    "notes": "Phoenix is one of the largest and fastest-growing US data-center metros."
+  },
+  {
+    "id": "crusoe-cheyenne-wy",
+    "name": "Crusoe — Cheyenne, WY",
+    "operator": "Crusoe",
+    "tenants": [
+      "Crusoe",
+      "Multiple"
+    ],
+    "developer": "Crusoe",
+    "partners": [
+      "Tallgrass",
+      "Nvidia"
+    ],
+    "location": {
+      "city": "Cheyenne",
+      "county": "Laramie",
+      "state": "WY",
+      "lat": 41.14,
+      "lng": -104.82
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "Black Hills Energy"
+    },
+    "status": "announced",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Nvidia GB200/GB300"
+    },
+    "timeline": {
+      "announced": "2025",
+      "first_power_year": 2027,
+      "full_buildout_year": 2029
+    },
+    "investment_usd_b": 9,
+    "power": {
+      "primary_fuel": "natural_gas",
+      "behind_the_meter": true,
+      "sources": [
+        {
+          "type": "onsite_gas",
+          "detail": "On-site natural gas (Tallgrass partnership) + wind",
+          "status": "announced"
+        },
+        {
+          "type": "wind",
+          "detail": "Wyoming wind",
+          "status": "planned"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Nvidia",
+      "chip": "GB200/GB300"
+    },
+    "cooling": "liquid",
+    "sources": [
+      "https://tallgrass.com/newsroom/press-releases/Crusoe"
+    ],
+    "confidence": "low",
+    "notes": "Crusoe (the Stargate Abilene builder) developing a separate Wyoming gas-powered campus."
+  },
+  {
+    "id": "aws-oregon-umatilla",
+    "name": "AWS — Umatilla / Morrow County, OR",
+    "operator": "Amazon (AWS)",
+    "tenants": [
+      "AWS"
+    ],
+    "developer": "AWS",
+    "partners": [
+      "Umatilla Electric Coop"
+    ],
+    "location": {
+      "city": "Boardman",
+      "county": "Morrow",
+      "state": "OR",
+      "lat": 45.84,
+      "lng": -119.7
+    },
+    "grid": {
+      "iso": "WECC",
+      "utility": "Umatilla Electric Cooperative"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 1000,
+      "accelerator_type": "Nvidia / Trainium"
+    },
+    "timeline": {
+      "announced": "2018",
+      "first_power_year": 2020,
+      "full_buildout_year": 2029
+    },
+    "investment_usd_b": 15,
+    "power": {
+      "primary_fuel": "grid_mixed",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "WECC (Umatilla EC); hydro + new solar",
+          "status": "operational"
+        },
+        {
+          "type": "solar",
+          "detail": "Oregon solar",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Mixed",
+      "chip": "Nvidia + Trainium"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://www.opb.org/article/2025/09/10/hermiston-oregon-data-center-amazon-eastern-ai-technology-power/"
+    ],
+    "confidence": "low",
+    "notes": "AWS's large eastern-Oregon (US-West-2) cluster."
+  },
+  {
+    "id": "google-pryor-ok",
+    "name": "Google — Pryor (MidAmerica), OK",
+    "operator": "Google",
+    "tenants": [
+      "Google"
+    ],
+    "developer": "Google",
+    "partners": [
+      "GRDA"
+    ],
+    "location": {
+      "city": "Pryor",
+      "county": "Mayes",
+      "state": "OK",
+      "lat": 36.29,
+      "lng": -95.31
+    },
+    "grid": {
+      "iso": "SPP",
+      "utility": "Grand River Dam Authority"
+    },
+    "status": "operational",
+    "capacity": {
+      "mw_it_full": 600,
+      "accelerator_type": "Google TPU"
+    },
+    "timeline": {
+      "announced": "2011",
+      "first_power_year": 2012,
+      "full_buildout_year": 2028
+    },
+    "investment_usd_b": 5,
+    "power": {
+      "primary_fuel": "wind",
+      "sources": [
+        {
+          "type": "grid",
+          "detail": "SPP (GRDA) — high wind",
+          "status": "operational"
+        },
+        {
+          "type": "wind",
+          "detail": "Oklahoma wind PPAs",
+          "status": "operational"
+        }
+      ]
+    },
+    "silicon": {
+      "primary_vendor": "Google",
+      "chip": "TPU"
+    },
+    "cooling": "hybrid",
+    "sources": [
+      "https://www.datacenterdynamics.com/en/news/google-to-spend-600m-on-pryor-data-center-expansion/"
+    ],
+    "confidence": "low",
+    "notes": "Google Oklahoma campus in SPP; wind-heavy."
+  }
+]

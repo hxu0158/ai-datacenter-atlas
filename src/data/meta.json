@@ -1,0 +1,30 @@
+{
+  "version": "0.1.0",
+  "as_of": "2026-06-03",
+  "disclaimer": "Analyst working dataset, not investment advice. Figures are estimates assembled from public reporting, company announcements, and regulatory filings as of the as-of date. Megawatts denote IT/critical load at full build unless noted; many campuses do not disclose exact MW, so values are order-of-magnitude. Each record carries a confidence flag (high / medium / low). Verify against primary sources before relying on any single number.",
+  "methodology": [
+    "Scope: major AI-specific data-center campuses (frontier-training and large inference) plus the dedicated energy-supply assets contracted to power them. Not an exhaustive census of all US data centers (~hundreds of colo/enterprise facilities are excluded).",
+    "Megawatts: 'mw_it_full' = IT/critical load at full build. Total facility power (incl. cooling/overhead) is typically 1.2-1.4x higher (PUE).",
+    "Status vs. MW: 'status' reflects a campus's current PHASE (operational / under construction / announced / planned), but the MW shown is always FULL build. So 'under-construction GW' sums the full-build capacity of campuses in a construction phase and overstates MW physically energizing in any single year. External figures like '~5 GW under construction in 2026' count only near-term phased capacity and are not directly comparable.",
+    "Cross-checks (Jun 2026): nuclear figures reconcile exactly with public reporting (Crane/TMI 835 MW, Susquehanna 1,920 MW, Clinton 1,121 MW). Stargate Abilene ~1.2 GW / ~450k GB200, AWS Rainier ~2.2 GW / ~500k Trainium2, and GB200 economics (~$45k/GPU, ~1.7-2.0 kW IT/GPU) all match reported values. Many secondary campuses still cite homepage-level sources only — flagged low/medium confidence and the best candidates for /refresh-data.",
+    "Implied accelerators: where not directly reported, the dashboard estimates accelerator units from IT MW using a configurable ~2.0 kW per accelerator all-in (system-level, incl. CPU/networking/cooling-share). Calibrated so AWS Rainier ~2.2 GW => ~1.1M Trainium2 and xAI Colossus ~0.5 GW => ~230k GPUs. A rough planning figure, not a vendor count.",
+    "Silicon $: estimated from accelerator count x blended ASP (~$40-50k for GB-class systems, less for custom ASICs). Treat as directional TAM, not bookings.",
+    "Power gap: 'demand' = sum of campus IT MW by grid region; 'dedicated supply' = sum of power-asset MW linked to AI offtake in that region. A large gap implies reliance on existing grid headroom, merchant power, or not-yet-contracted generation.",
+    "Confidence: high = well-documented with disclosed figures; medium = reported but key numbers estimated; low = announced/early or coordinates and capacity approximate."
+  ],
+  "sources": [
+    { "name": "OpenAI — Five new Stargate sites", "url": "https://openai.com/index/five-new-stargate-sites/" },
+    { "name": "Epoch AI — Stargate site tracker", "url": "https://epoch.ai/blog/openai-stargate-where-the-us-sites-stand" },
+    { "name": "Epoch AI — Frontier Data Centers Hub", "url": "https://epoch.ai/blog/introducing-the-frontier-data-centers-hub/" },
+    { "name": "AWS — Project Rainier", "url": "https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster" },
+    { "name": "DCD — Project Rainier 500k Trainium2", "url": "https://www.datacenterdynamics.com/en/news/aws-activates-project-rainier-cluster-of-nearly-500000-trainium2-chips/" },
+    { "name": "Power Engineering — Meta on-site gas turbines", "url": "https://www.power-eng.com/onsite-power/onsite-gas-turbines-reciprocating-engines-to-power-meta-data-center/" },
+    { "name": "SMR Intel — Nuclear data-center deals", "url": "https://smrintel.com/nuclear-data-center-deals/" },
+    { "name": "DCD — Three Mile Island restart", "url": "https://www.datacenterdynamics.com/en/news/three-mile-island-nuclear-plant-restart-ahead-of-schedule-in-boon-to-microsofts-ai-ambitions-report/" },
+    { "name": "EPRI — Powering Intelligence (load growth)", "url": "https://powering-intelligence.epri.com/load-growth.html" },
+    { "name": "LBNL — US data center energy report (DOE)", "url": "https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers" },
+    { "name": "S&P Global — DC grid-power demand to triple by 2030", "url": "https://www.spglobal.com/energy/en/news-research/latest-news/electric-power/101425-data-center-grid-power-demand-to-rise-22-in-2025-nearly-triple-by-2030" },
+    { "name": "Power Engineering — GE Vernova turbine backlog", "url": "https://www.power-eng.com/gas/turbines/data-centers-drive-record-surge-in-ge-vernova-power-equipment-orders-as-turbine-slots-tighten-through-2030/" },
+    { "name": "The Center Square — Texas gas-fired surge", "url": "https://www.thecentersquare.com/national/article_1505194a-a36e-49a6-831f-e808203f723b.html" }
+  ]
+}
