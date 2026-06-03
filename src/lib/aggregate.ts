@@ -225,6 +225,34 @@ export function unitsByVendor(dcs: EnrichedDataCenter[]): { vendor: AccelVendor;
     .sort((a, b) => b.units - a.units)
 }
 
+/**
+ * Bucket a campus into an accelerator family/generation. Accelerators are NOT
+ * fungible: 1 Google TPU or 1 AWS Trainium is a different unit than 1 Nvidia
+ * GPU, and GPU generations (Hopper -> Blackwell -> Rubin) differ in throughput
+ * and price. This lets the Silicon lens show the mix rather than one blended count.
+ */
+export function chipFamily(d: EnrichedDataCenter): string {
+  const c = (d.silicon.chip ?? '').toLowerCase()
+  const v = d.silicon.primary_vendor
+  if (v === 'Google' || c.includes('tpu')) return 'Google TPU'
+  if (v === 'Amazon' || c.includes('trainium')) return 'AWS Trainium'
+  if (v === 'AMD' || c.includes('instinct') || c.includes('mi3')) return 'AMD Instinct (MI)'
+  if (c.includes('rubin') || c.includes('vera') || /\bvr\b/.test(c)) return 'Nvidia Rubin (VR)'
+  if (c.includes('h100') || c.includes('h200') || c.includes('hopper')) return 'Nvidia Hopper (H100/200)'
+  if (c.includes('gb200') || c.includes('gb300') || c.includes('blackwell') || c.includes('b200'))
+    return 'Nvidia Blackwell (GB200/300)'
+  if (v === 'Nvidia') return 'Nvidia (unspecified)'
+  return 'Mixed / unspecified'
+}
+
+export function unitsByChipFamily(dcs: EnrichedDataCenter[]): { family: string; units: number }[] {
+  const m = new Map<string, number>()
+  dcs.forEach((d) => m.set(chipFamily(d), (m.get(chipFamily(d)) ?? 0) + impliedUnits(d)))
+  return Array.from(m.entries())
+    .map(([family, units]) => ({ family, units }))
+    .sort((a, b) => b.units - a.units)
+}
+
 export function siliconByOperator(
   dcs: EnrichedDataCenter[],
 ): { group: OperatorGroup; siliconB: number }[] {

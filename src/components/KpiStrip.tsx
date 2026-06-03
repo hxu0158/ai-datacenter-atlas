@@ -49,7 +49,7 @@ function Kpi({
       <button
         onClick={() => open(metric)}
         title="Show derivation"
-        className="absolute right-1 top-1 rounded p-0.5 text-slate-500 opacity-0 transition hover:bg-ink-700 hover:text-accent group-hover:opacity-100"
+        className="absolute right-1 top-1 rounded p-0.5 text-slate-500 opacity-70 transition hover:bg-ink-700 hover:text-accent md:opacity-0 md:group-hover:opacity-100"
       >
         <FunctionSquare size={12} />
       </button>
@@ -71,7 +71,7 @@ export default function KpiStrip() {
   const gap = k.totalGW - k.trackedSupplyGW
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex gap-2 overflow-x-auto pb-1 md:flex-wrap md:overflow-x-visible md:pb-0">
       <Kpi metric="totalGW" icon={<Zap size={13} />} label="Tracked AI capacity" value={`${k.totalGW.toFixed(1)} GW`} sub={`${k.count} campuses`} accent />
       <Kpi metric="operationalGW" icon={<Activity size={13} />} label="Operational" value={`${k.operationalGW.toFixed(1)} GW`} sub="live today" />
       <Kpi metric="underConstructionGW" icon={<Factory size={13} />} label="Under construction" value={`${k.underConstructionGW.toFixed(1)} GW`} sub="building now" />

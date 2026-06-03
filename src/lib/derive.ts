@@ -4,7 +4,7 @@
 
 import type { EnrichedDataCenter } from './data'
 import type { PowerAsset, Confidence } from '../types'
-import { impliedUnits, impliedSiliconB, VENDOR_ASP, KW_PER_ACCEL, powerGapByISO } from './aggregate'
+import { impliedUnits, impliedSiliconB, VENDOR_ASP, KW_PER_ACCEL, powerGapByISO, chipFamily } from './aggregate'
 import { fmtUSD, fmtUnits, FUEL_LABEL } from './format'
 
 export interface Contribution {
@@ -125,9 +125,9 @@ function accelDerivation(dcs: EnrichedDataCenter[], title = 'Implied accelerator
     total: fmtUnits(total),
     formula: 'Σ accelerators,  where accelerators = reported count,  else  IT MW × 1000 ÷ 2.0 kW',
     assumptions: [
-      `~${KW_PER_ACCEL} kW of IT load per accelerator, all-in (system-level, incl. CPU / networking / cooling share). Calibrated so AWS Rainier (~2.2 GW ⇒ ~1.1M Trainium2) and xAI Colossus (~0.5 GW ⇒ ~230k GPUs) reconcile.`,
-      'Reported chip counts are used directly where a company has disclosed them.',
-      'A planning figure for compute scale — not a vendor unit forecast.',
+      'HETEROGENEOUS UNITS: this sums different accelerator TYPES — Nvidia GPUs (Blackwell GB200/GB300, Hopper H100/H200), Google TPUs, and AWS Trainium. One TPU or Trainium is NOT equivalent to one GPU in throughput or price; treat this as a raw unit tally for scale, not a perf- or dollar-equivalent figure. The "Accelerator" column shows each campus\'s chip; the Silicon lens breaks the total down by vendor and chip family.',
+      `~${KW_PER_ACCEL} kW of IT load per accelerator, all-in (system-level, incl. CPU / networking / cooling share). Calibrated so AWS Rainier (~2.2 GW ⇒ ~1.1M Trainium2) and xAI Colossus (~0.5 GW ⇒ ~230k GPUs) reconcile. TPUs/Trainium actually draw less per chip, so their counts here are conservative (low).`,
+      'Reported chip counts are used directly where a company has disclosed them (e.g. Stargate Abilene ~450k GB200, Rainier ~500k Trainium2).',
     ],
     colInput: 'Accelerator',
     colValue: 'Units',
@@ -249,6 +249,8 @@ export function buildDerivation(
       return accelDerivation(dcs)
     case 'vendorUnits':
       return accelDerivation(dcs.filter((d) => d.silicon.primary_vendor === arg), `${arg} — implied accelerators`)
+    case 'chipFamilyUnits':
+      return accelDerivation(dcs.filter((d) => chipFamily(d) === arg), `${arg} — implied accelerators`)
     case 'silicon':
       return siliconDerivation(dcs)
     case 'operatorSilicon':

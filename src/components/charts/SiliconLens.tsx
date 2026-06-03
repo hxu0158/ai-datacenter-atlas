@@ -13,7 +13,7 @@ import {
 } from 'recharts'
 import { useFiltered } from '../../lib/useFiltered'
 import { useAtlas } from '../../store'
-import { unitsByVendor, siliconByOperator, impliedUnits } from '../../lib/aggregate'
+import { unitsByVendor, siliconByOperator, impliedUnits, unitsByChipFamily } from '../../lib/aggregate'
 import { VENDOR_COLOR, operatorColor } from '../../lib/colors'
 import { fmtUnits, fmtUSD } from '../../lib/format'
 import { ChartCard, MiniLegend, AXIS, GRID_COLOR, tooltipProps } from './chart-ui'
@@ -21,11 +21,23 @@ import { ChartCard, MiniLegend, AXIS, GRID_COLOR, tooltipProps } from './chart-u
 const MERCHANT = new Set(['Nvidia', 'AMD'])
 const CUSTOM = new Set(['Amazon', 'Google', 'Broadcom', 'Marvell'])
 
+const CHIP_FAMILY_COLOR: Record<string, string> = {
+  'Nvidia Blackwell (GB200/300)': '#76b900',
+  'Nvidia Hopper (H100/200)': '#4d7c0f',
+  'Nvidia Rubin (VR)': '#a3e635',
+  'Nvidia (unspecified)': '#3f6212',
+  'Google TPU': '#4285f4',
+  'AWS Trainium': '#ff9900',
+  'AMD Instinct (MI)': '#ed1c24',
+  'Mixed / unspecified': '#64748b',
+}
+
 export default function SiliconLens() {
   const { dcs } = useFiltered()
   const open = useAtlas((s) => s.openDerivation)
 
   const byVendor = useMemo(() => unitsByVendor(dcs), [dcs])
+  const byChip = useMemo(() => unitsByChipFamily(dcs), [dcs])
   const byOperator = useMemo(() => siliconByOperator(dcs), [dcs])
 
   const split = useMemo(() => {
@@ -65,6 +77,30 @@ export default function SiliconLens() {
             >
               {byVendor.map((v) => (
                 <Cell key={v.vendor} fill={VENDOR_COLOR[v.vendor]} />
+              ))}
+            </Bar>
+          </BarChart>
+        </ResponsiveContainer>
+      </ChartCard>
+
+      <ChartCard
+        title="Implied accelerators — by chip family"
+        subtitle="TPU vs GPU, and GPU generation — these are not fungible (1 TPU ≠ 1 GPU)"
+      >
+        <ResponsiveContainer width="100%" height={210}>
+          <BarChart data={byChip} layout="vertical" margin={{ top: 4, right: 16, left: 8, bottom: 0 }}>
+            <CartesianGrid stroke={GRID_COLOR} horizontal={false} />
+            <XAxis type="number" tick={AXIS} axisLine={false} tickLine={false} tickFormatter={fmtUnits} />
+            <YAxis type="category" dataKey="family" tick={{ ...AXIS, fontSize: 9 }} axisLine={false} tickLine={false} width={134} />
+            <Tooltip {...tooltipProps} formatter={(v: number) => `${fmtUnits(v)} units`} />
+            <Bar
+              dataKey="units"
+              radius={[0, 3, 3, 0]}
+              cursor="pointer"
+              onClick={(e: any) => e && open('chipFamilyUnits', e.family)}
+            >
+              {byChip.map((c) => (
+                <Cell key={c.family} fill={CHIP_FAMILY_COLOR[c.family] ?? '#64748b'} />
               ))}
             </Bar>
           </BarChart>

@@ -3,7 +3,7 @@ import { OPERATOR_GROUPS, ALL_ISOS, ALL_FUELS, ALL_VENDORS, ALL_STATES } from '.
 import { STATUS } from '../types'
 import { STATUS_COLOR, FUEL_COLOR, VENDOR_COLOR, OPERATOR_COLOR, ISO_COLOR } from '../lib/colors'
 import { STATUS_LABEL, FUEL_LABEL, titleCase } from '../lib/format'
-import { RotateCcw, Search, Layers, Link2, Database } from 'lucide-react'
+import { RotateCcw, Search, Layers, Link2, Database, X } from 'lucide-react'
 
 type FacetKey = 'operators' | 'statuses' | 'states' | 'isos' | 'fuels' | 'vendors'
 
@@ -93,7 +93,7 @@ function ColorByToggle() {
   )
 }
 
-export default function FilterRail() {
+export default function FilterRail({ open, onClose }: { open: boolean; onClose: () => void }) {
   const { search, setSearch, yearMax, setYearMax, reset, activeFilterCount } = useAtlas()
   const showAssets = useAtlas((s) => s.showAssets)
   const setShowAssets = useAtlas((s) => s.setShowAssets)
@@ -102,19 +102,38 @@ export default function FilterRail() {
   const count = activeFilterCount()
 
   return (
-    <aside className="flex h-full w-[260px] shrink-0 flex-col gap-4 overflow-y-auto border-r border-ink-600/70 bg-ink-900/60 p-3">
-      <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold uppercase tracking-wider text-slate-300">
-          Filters
-        </span>
-        <button
-          onClick={reset}
-          disabled={count === 0}
-          className="flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-slate-400 enabled:hover:text-accent disabled:opacity-40"
-        >
-          <RotateCcw size={11} /> Reset{count > 0 ? ` (${count})` : ''}
-        </button>
-      </div>
+    <>
+      {open && (
+        <div className="fixed inset-0 z-[1400] bg-black/50 lg:hidden" onClick={onClose} />
+      )}
+      <aside
+        className={
+          'flex h-full w-[280px] shrink-0 flex-col gap-4 overflow-y-auto border-r border-ink-600/70 bg-ink-900 p-3 transition-transform ' +
+          'fixed inset-y-0 left-0 z-[1450] lg:static lg:z-auto lg:w-[260px] lg:translate-x-0 lg:bg-ink-900/60 ' +
+          (open ? 'translate-x-0' : '-translate-x-full lg:translate-x-0')
+        }
+      >
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-semibold uppercase tracking-wider text-slate-300">
+            Filters
+          </span>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={reset}
+              disabled={count === 0}
+              className="flex items-center gap-1 rounded px-1.5 py-0.5 text-[11px] text-slate-400 enabled:hover:text-accent disabled:opacity-40"
+            >
+              <RotateCcw size={11} /> Reset{count > 0 ? ` (${count})` : ''}
+            </button>
+            <button
+              onClick={onClose}
+              className="rounded p-1 text-slate-400 hover:bg-ink-700 hover:text-slate-100 lg:hidden"
+              title="Close filters"
+            >
+              <X size={14} />
+            </button>
+          </div>
+        </div>
 
       <div className="relative">
         <Search size={13} className="pointer-events-none absolute left-2 top-2 text-slate-500" />
@@ -205,6 +224,7 @@ export default function FilterRail() {
           Color by {titleCase(useAtlas.getState().colorDim)} · circle size ∝ MW
         </div>
       </div>
-    </aside>
+      </aside>
+    </>
   )
 }

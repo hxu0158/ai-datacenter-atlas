@@ -100,8 +100,8 @@ export default function DerivationModal() {
                 </span>
               </div>
             </div>
-            <div className="overflow-hidden rounded-md border border-ink-600/60">
-              <table className="w-full border-collapse text-[11px]">
+            <div className="overflow-x-auto rounded-md border border-ink-600/60">
+              <table className="w-full min-w-[460px] border-collapse text-[11px]">
                 <thead className="bg-ink-800 text-slate-400">
                   <tr>
                     <th className="px-2 py-1.5 text-left font-medium">Item</th>
