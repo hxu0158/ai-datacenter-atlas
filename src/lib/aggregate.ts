@@ -32,6 +32,37 @@ export function impliedSiliconB(dc: EnrichedDataCenter): number {
   return (impliedUnits(dc) * VENDOR_ASP[dc.silicon.primary_vendor]) / 1e9
 }
 
+// ---- Energy (TWh/yr) — capacity (power) -> annual consumption (energy) -------
+
+export const HOURS_YEAR = 8760
+/** Approx. total US annual electricity generation, TWh (for grid-share context). */
+export const US_GRID_TWH = 4100
+export const DEFAULT_LOAD_FACTOR = 0.8
+export const DEFAULT_PUE = 1.3
+
+/** Annual electricity for one campus: IT MW x hours x load factor x PUE -> TWh/yr. */
+export function annualTWh(mwIt: number, loadFactor: number, pue: number): number {
+  return (mwIt * HOURS_YEAR * loadFactor * pue) / 1e6
+}
+
+export function totalAnnualTWh(dcs: EnrichedDataCenter[], loadFactor: number, pue: number): number {
+  return dcs.reduce((a, d) => a + annualTWh(d.capacity.mw_it_full, loadFactor, pue), 0)
+}
+
+export function energyByISO(
+  dcs: EnrichedDataCenter[],
+  loadFactor: number,
+  pue: number,
+): { iso: Iso; twh: number }[] {
+  const m = new Map<Iso, number>()
+  dcs.forEach((d) =>
+    m.set(d.grid.iso, (m.get(d.grid.iso) ?? 0) + annualTWh(d.capacity.mw_it_full, loadFactor, pue)),
+  )
+  return Array.from(m.entries())
+    .map(([iso, twh]) => ({ iso, twh }))
+    .sort((a, b) => b.twh - a.twh)
+}
+
 // ---- Filtering ----------------------------------------------------------
 
 export function applyFilters(dcs: EnrichedDataCenter[], f: Filters): EnrichedDataCenter[] {

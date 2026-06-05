@@ -11,10 +11,12 @@ export default function DerivationModal() {
   const close = useAtlas((s) => s.closeDerivation)
   const select = useAtlas((s) => s.select)
   const { dcs, assets } = useFiltered()
+  const loadFactor = useAtlas((s) => s.loadFactor)
+  const pue = useAtlas((s) => s.pue)
 
   const d = useMemo(
-    () => (der ? buildDerivation(der.metric, der.arg, dcs, assets) : null),
-    [der, dcs, assets],
+    () => (der ? buildDerivation(der.metric, der.arg, dcs, assets, { loadFactor, pue }) : null),
+    [der, dcs, assets, loadFactor, pue],
   )
   if (!der || !d) return null
 

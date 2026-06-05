@@ -9,9 +9,10 @@ import {
   TrendingUp,
   AlertTriangle,
   FunctionSquare,
+  Plug,
 } from 'lucide-react'
 import { useFiltered } from '../lib/useFiltered'
-import { computeKpis } from '../lib/aggregate'
+import { computeKpis, totalAnnualTWh, US_GRID_TWH } from '../lib/aggregate'
 import { fmtUSD, fmtUnits } from '../lib/format'
 import { useAtlas } from '../store'
 
@@ -69,10 +70,14 @@ export default function KpiStrip() {
   const { dcs, assets } = useFiltered()
   const k = useMemo(() => computeKpis(dcs, assets), [dcs, assets])
   const gap = k.totalGW - k.trackedSupplyGW
+  const loadFactor = useAtlas((s) => s.loadFactor)
+  const pue = useAtlas((s) => s.pue)
+  const twh = useMemo(() => totalAnnualTWh(dcs, loadFactor, pue), [dcs, loadFactor, pue])
 
   return (
     <div className="flex gap-2 overflow-x-auto pb-1 md:flex-wrap md:overflow-x-visible md:pb-0">
       <Kpi metric="totalGW" icon={<Zap size={13} />} label="Tracked AI capacity" value={`${k.totalGW.toFixed(1)} GW`} sub={`${k.count} campuses`} accent />
+      <Kpi metric="energyTWh" icon={<Plug size={13} />} label="Implied energy" value={`${twh.toFixed(0)} TWh/yr`} sub={`≈ ${((twh / US_GRID_TWH) * 100).toFixed(0)}% of US grid`} />
       <Kpi metric="operationalGW" icon={<Activity size={13} />} label="Operational" value={`${k.operationalGW.toFixed(1)} GW`} sub="live today" />
       <Kpi metric="underConstructionGW" icon={<Factory size={13} />} label="Under construction" value={`${k.underConstructionGW.toFixed(1)} GW`} sub="building now" />
       <Kpi metric="futureGW" icon={<TrendingUp size={13} />} label="Announced / planned" value={`${k.futureGW.toFixed(1)} GW`} sub="pipeline" />

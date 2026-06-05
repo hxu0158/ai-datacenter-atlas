@@ -4,7 +4,18 @@
 
 import type { EnrichedDataCenter } from './data'
 import type { PowerAsset, Confidence } from '../types'
-import { impliedUnits, impliedSiliconB, VENDOR_ASP, KW_PER_ACCEL, powerGapByISO, chipFamily } from './aggregate'
+import {
+  impliedUnits,
+  impliedSiliconB,
+  VENDOR_ASP,
+  KW_PER_ACCEL,
+  powerGapByISO,
+  chipFamily,
+  annualTWh,
+  US_GRID_TWH,
+  DEFAULT_LOAD_FACTOR,
+  DEFAULT_PUE,
+} from './aggregate'
 import { fmtUSD, fmtUnits, FUEL_LABEL } from './format'
 
 export interface Contribution {
@@ -222,13 +233,56 @@ function gapDerivation(dcs: EnrichedDataCenter[], assets: PowerAsset[]): Derivat
   })
 }
 
+function energyDerivation(
+  dcs: EnrichedDataCenter[],
+  lf: number,
+  pue: number,
+  title = 'Implied annual energy',
+): Derivation {
+  const contributions: Contribution[] = dcs.map((d) => {
+    const twh = annualTWh(d.capacity.mw_it_full, lf, pue)
+    return {
+      id: d.id,
+      kind: 'dc' as const,
+      name: d.name,
+      input: mwStr(d.capacity.mw_it_full),
+      math: `× 8,760h × ${lf} LF × ${pue} PUE`,
+      value: twh,
+      display: `${twh.toFixed(1)} TWh`,
+      sources: d.sources,
+      confidence: d.confidence,
+    }
+  })
+  const total = contributions.reduce((a, c) => a + c.value, 0)
+  return finalize({
+    title,
+    total: `${total.toFixed(0)} TWh/yr`,
+    formula: 'Σ ( IT MW × 8,760 h/yr × load factor × PUE ) ÷ 1e6',
+    assumptions: [
+      `Load factor ${(lf * 100).toFixed(0)}% (AI clusters run near-continuously) × PUE ${pue} (total-facility, incl. cooling). Both are tunable in the Power / energy lens.`,
+      `Power (GW) sizes the build and the grid constraint; energy (TWh/yr) is what is actually consumed. ${total.toFixed(0)} TWh/yr ≈ ${((total / US_GRID_TWH) * 100).toFixed(0)}% of total US electricity (~${US_GRID_TWH.toLocaleString()} TWh/yr).`,
+      'At full build — campuses still under construction / announced are counted at full capacity.',
+    ],
+    colInput: 'IT load',
+    colValue: 'TWh/yr',
+    contributions,
+  })
+}
+
 export function buildDerivation(
   metric: string,
   arg: string | undefined,
   dcs: EnrichedDataCenter[],
   assets: PowerAsset[],
+  opts: { loadFactor?: number; pue?: number } = {},
 ): Derivation {
   switch (metric) {
+    case 'energyTWh': {
+      const lf = opts.loadFactor ?? DEFAULT_LOAD_FACTOR
+      const pue = opts.pue ?? DEFAULT_PUE
+      const scoped = arg ? dcs.filter((d) => d.grid.iso === arg) : dcs
+      return energyDerivation(scoped, lf, pue, arg ? `${arg} — implied annual energy` : 'Implied annual energy')
+    }
     case 'totalGW':
       return gwDerivation(dcs, 'Tracked AI capacity', 'Σ campus IT load (MW) ÷ 1000')
     case 'operationalGW':

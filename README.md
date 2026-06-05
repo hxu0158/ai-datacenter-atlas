@@ -1,6 +1,6 @@
 # AI Data Center & Energy Atlas
 
-An interactive analyst dashboard mapping the **US AI data-center buildout** and the **energy supply that feeds it** — built to be read through a semiconductor-analyst lens.
+An interactive analyst dashboard mapping the **US AI data-center buildout** and the **energy supply that feeds it** — built to be read through a semiconductor-analyst lens. Two top-level views: a **Data Centers** map/dashboard and a **Models** tracker (frontier + open-weights leaderboards, benchmarks, and price-performance).
 
 > **Thesis baked into the design:** power is the binding constraint. Megawatts gate the buildout; silicon TAM follows the megawatts. So the tool deliberately links three layers that are usually tracked apart: **compute demand** (campuses, MW), **energy supply** (nuclear restarts/PPAs, SMRs, on-site gas, geothermal, solar+storage), and the **silicon implication** (implied accelerators + vendor exposure).
 
@@ -24,13 +24,24 @@ npm run refresh   # OPTIONAL unattended refresh via the metered `claude -p` CLI 
 - **KPI strip** — tracked GW (operational / under-construction / pipeline), capex, implied accelerators + silicon $, contracted nuclear vs. gas, and the headline **demand − tracked-supply gap**.
 - **Map** — every campus sized by MW; color by status / operator / fuel. Toggle the **power-supply asset layer** and the **PPA/supply link-lines** that tie generation to campuses. Click any marker for a full profile.
 - **Four analyst lenses** (tabs):
-  - **Power / energy** — demand vs. dedicated supply by grid region (ISO), campus fuel mix, supply-asset mix.
+  - **Power / energy** — demand vs. dedicated supply by grid region (ISO), campus fuel mix, supply-asset mix, plus **annual electricity consumption (TWh/yr)** with tunable load-factor/PUE and a US-grid-share readout. (Power in **GW** sizes the build and the grid constraint; **TWh/yr** is what it actually consumes — both shown in their correct unit.)
   - **Silicon demand** — implied accelerators by vendor, silicon $ by operator, merchant-GPU vs. custom-ASIC split.
   - **Capex & players** — capex by operator stacked by status, largest single-campus commitments + partners.
   - **Buildout timeline** — cumulative GW reaching first-power by year vs. the full pipeline, plus annual adds.
 - **Data table** — sortable, filtered, **CSV export**.
 - **Show the math** — double-click any KPI (or click any chart bar/segment) to open a **derivation widget**: the formula, the constants used, the full per-campus build-up (e.g. `5,000 MW × 1000 ÷ 2 kW = 2.5M accelerators`), the deduped source list, and the high/medium/low confidence mix. Every aggregate is traceable back to the records and sources that produced it.
 - **Filters** cross-filter everything: operator, status, grid region, primary power, silicon vendor, state, and an "online by year" slider.
+
+### Models view — the AI model race
+
+A second top-level tab tracking ~30 frontier + key open-weights models the way an AI-investment analyst would:
+
+- **Leaderboard** — rank by LMArena human votes (ELO) **or** any objective benchmark (GPQA, AIME, SWE-bench Verified, HLE, MMLU-Pro, or the AA Intelligence Index); bars colored by lab.
+- **Price vs. performance** — blended $/Mtok (log) vs Intelligence Index — the efficient frontier and the commoditization read (open/Chinese models cheap + near-frontier).
+- **Capability over time** — the Intelligence-Index frontier staircase, **closed vs open-weights**, surfacing the live ~6–7-point gap.
+- **Benchmarks & data** — heat-mapped, sortable model table with pricing/context, **CSV export**.
+
+Snapshot dataset at `src/data/models.json` (refreshable). Benchmark figures vary by source/effort setting and are directional; each record carries a confidence flag.
 
 ## Data
 

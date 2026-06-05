@@ -43,6 +43,9 @@ interface AtlasState extends Filters {
   lens: Lens
   selected: Selection
   derivation: DerivationRequest
+  // energy assumptions (tunable)
+  loadFactor: number
+  pue: number
   // actions
   toggle: (facet: FacetKey, value: string) => void
   setYearMax: (y: number) => void
@@ -54,6 +57,8 @@ interface AtlasState extends Filters {
   select: (sel: Selection) => void
   openDerivation: (metric: string, arg?: string) => void
   closeDerivation: () => void
+  setLoadFactor: (n: number) => void
+  setPue: (n: number) => void
   reset: () => void
   activeFilterCount: () => number
 }
@@ -66,6 +71,8 @@ export const useAtlas = create<AtlasState>((set, get) => ({
   lens: 'power',
   selected: null,
   derivation: null,
+  loadFactor: 0.8,
+  pue: 1.3,
 
   toggle: (facet, value) =>
     set((s) => {
@@ -82,6 +89,8 @@ export const useAtlas = create<AtlasState>((set, get) => ({
   select: (selected) => set({ selected }),
   openDerivation: (metric, arg) => set({ derivation: { metric, arg } }),
   closeDerivation: () => set({ derivation: null }),
+  setLoadFactor: (loadFactor) => set({ loadFactor }),
+  setPue: (pue) => set({ pue }),
   reset: () => set({ ...emptyFilters }),
   activeFilterCount: () => {
     const s = get()
