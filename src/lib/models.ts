@@ -74,16 +74,59 @@ export interface MetricDef {
   label: string
   short: string
   pct: boolean
+  desc: string
 }
 
 export const METRICS: MetricDef[] = [
-  { key: 'intelligence_index', label: 'AA Intelligence Index (composite)', short: 'Intelligence Index', pct: false },
-  { key: 'arena_elo', label: 'LMArena ELO — human votes', short: 'Arena ELO (votes)', pct: false },
-  { key: 'gpqa', label: 'GPQA Diamond — graduate science', short: 'GPQA', pct: true },
-  { key: 'aime', label: 'AIME — competition math', short: 'AIME', pct: true },
-  { key: 'swe_bench', label: 'SWE-bench Verified — real coding', short: 'SWE-bench', pct: true },
-  { key: 'mmlu_pro', label: 'MMLU-Pro — knowledge', short: 'MMLU-Pro', pct: true },
-  { key: 'hle', label: "Humanity's Last Exam — frontier", short: 'HLE', pct: true },
+  {
+    key: 'intelligence_index',
+    label: 'AA Intelligence Index (composite)',
+    short: 'Intelligence Index',
+    pct: false,
+    desc: 'Artificial Analysis composite (~0–70): blends reasoning, knowledge, math, coding and science evals into one number. Best single "how smart overall" gauge; higher is better.',
+  },
+  {
+    key: 'arena_elo',
+    label: 'LMArena ELO — human votes',
+    short: 'Arena ELO (votes)',
+    pct: false,
+    desc: 'Crowd-sourced human preference — people vote on blind head-to-head answers; an ELO rating is derived from 1M+ votes. Measures perceived helpfulness/"vibes", not raw correctness.',
+  },
+  {
+    key: 'gpqa',
+    label: 'GPQA Diamond — graduate science',
+    short: 'GPQA',
+    pct: true,
+    desc: 'PhD-level, "Google-proof" science multiple-choice (physics, chemistry, biology). % correct.',
+  },
+  {
+    key: 'aime',
+    label: 'AIME — competition math',
+    short: 'AIME',
+    pct: true,
+    desc: 'American Invitational Math Exam problems, % solved. Top reasoning models now saturate it (~100%), so it is losing signal at the frontier.',
+  },
+  {
+    key: 'swe_bench',
+    label: 'SWE-bench Verified — real coding',
+    short: 'SWE-bench',
+    pct: true,
+    desc: 'Resolves real GitHub issues in real repos; % where the model\'s patch passes the project\'s tests. The closest thing to a real-world software-engineering benchmark.',
+  },
+  {
+    key: 'mmlu_pro',
+    label: 'MMLU-Pro — broad knowledge',
+    short: 'MMLU-Pro',
+    pct: true,
+    desc: 'Harder MMLU across 14 domains with 10 answer choices. % correct.',
+  },
+  {
+    key: 'hle',
+    label: "Humanity's Last Exam — frontier",
+    short: 'HLE',
+    pct: true,
+    desc: '~2,500 expert questions at the edge of human knowledge, built to resist saturation. % correct is low for everyone, so it separates the very best.',
+  },
 ]
 
 /** 3:1 input:output blended price ($/Mtok) — the common real-usage weighting. */

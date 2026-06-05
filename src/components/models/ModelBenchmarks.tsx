@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Download, ArrowUpDown } from 'lucide-react'
-import { models, blendedPrice, labColor, type AIModel, type MetricKey } from '../../lib/models'
+import { models, blendedPrice, labColor, METRICS, type AIModel, type MetricKey } from '../../lib/models'
+import { useAtlas } from '../../store'
 
 type ColKind = 'text' | 'num' | 'metric'
 interface Col {
@@ -51,6 +52,7 @@ function exportCsv(rows: AIModel[]) {
 }
 
 export default function ModelBenchmarks() {
+  const select = useAtlas((s) => s.selectModel)
   const [sort, setSort] = useState<{ k: string; dir: 1 | -1 }>({ k: 'intelligence_index', dir: -1 })
 
   const ranges = useMemo(() => {
@@ -106,6 +108,7 @@ export default function ModelBenchmarks() {
                 <th
                   key={c.k}
                   onClick={() => clickSort(c.k)}
+                  title={METRICS.find((d) => d.key === c.k)?.desc ?? c.label}
                   className={
                     'cursor-pointer select-none whitespace-nowrap border-b border-ink-600 px-2 py-1.5 font-medium text-slate-400 hover:text-slate-200 ' +
                     (c.kind === 'text' ? 'text-left' : 'text-right')
@@ -121,7 +124,11 @@ export default function ModelBenchmarks() {
           </thead>
           <tbody>
             {rows.map((m) => (
-              <tr key={m.id} className="border-b border-ink-700/50 hover:bg-ink-800/40">
+              <tr
+                key={m.id}
+                onClick={() => select(m.id)}
+                className="cursor-pointer border-b border-ink-700/50 hover:bg-ink-800/40"
+              >
                 <td className="whitespace-nowrap px-2 py-1 text-slate-100">
                   <span className="inline-flex items-center gap-1.5">
                     <span className="h-1.5 w-1.5 rounded-full" style={{ background: labColor(m.lab) }} />

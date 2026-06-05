@@ -93,23 +93,53 @@ function summary(datacenters, powerAssets) {
   return { campuses: datacenters.length, totalGW: gw.toFixed(1), byStatus, assets: powerAssets.length, supplyGW: supplyGW.toFixed(1) }
 }
 
+export function validateModels(models) {
+  const errors = []
+  const warnings = []
+  const CONF = ['high', 'medium', 'low']
+  const NUM = ['arena_elo', 'arena_rank', 'intelligence_index', 'gpqa', 'aime', 'swe_bench', 'mmlu_pro', 'hle', 'price_in', 'price_out', 'context_k', 'params_b', 'speed_tok_s']
+  const ids = new Set()
+  for (const m of models) {
+    const id = m.id ?? '(missing id)'
+    if (!m.id) errors.push(`model ${id}: missing id`)
+    if (ids.has(m.id)) errors.push(`model ${id}: duplicate id`)
+    ids.add(m.id)
+    if (!m.name) errors.push(`model ${id}: missing name`)
+    if (!m.lab) errors.push(`model ${id}: missing lab`)
+    if (typeof m.open_weights !== 'boolean') errors.push(`model ${id}: open_weights must be boolean`)
+    if (!CONF.includes(m.confidence)) errors.push(`model ${id}: bad confidence "${m.confidence}"`)
+    if (!m.released || !/^\d{4}-\d{2}$/.test(m.released)) warnings.push(`model ${id}: released should be YYYY-MM (got "${m.released}")`)
+    for (const k of NUM) {
+      if (m[k] != null && typeof m[k] !== 'number') errors.push(`model ${id}: ${k} must be a number or null`)
+    }
+    if (!Array.isArray(m.sources) || m.sources.length === 0) warnings.push(`model ${id}: no sources cited`)
+  }
+  return { errors, warnings }
+}
+
 // CLI entry
 const isMain = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]
 if (isMain) {
   const load = (f) => JSON.parse(readFileSync(join(DATA, f), 'utf8'))
-  let dc, pa, meta
+  let dc, pa, meta, mdl
   try {
     dc = load('datacenters.json')
     pa = load('power-assets.json')
     meta = load('meta.json')
+    mdl = load('models.json')
   } catch (e) {
     console.error('✗ Failed to read/parse data files:', e.message)
     process.exit(1)
   }
-  const { errors, warnings } = validateDataset(dc, pa, meta)
+  const dcRes = validateDataset(dc, pa, meta)
+  const mRes = validateModels(mdl)
+  const errors = [...dcRes.errors, ...mRes.errors]
+  const warnings = [...dcRes.warnings, ...mRes.warnings]
   const s = summary(dc, pa)
+  const openCount = mdl.filter((m) => m.open_weights).length
   console.log('— AI Data Center & Energy Atlas — dataset check —')
   console.log(`  ${s.campuses} campuses · ${s.totalGW} GW IT load · ${s.assets} power assets · ${s.supplyGW} GW supply`)
+  console.log(`  ${mdl.length} models (${openCount} open / ${mdl.length - openCount} closed)`)
   console.log(`  status: ${JSON.stringify(s.byStatus)}`)
   if (warnings.length) {
     console.log(`\n  ${warnings.length} warning(s):`)

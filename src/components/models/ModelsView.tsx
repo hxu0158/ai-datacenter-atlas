@@ -5,6 +5,7 @@ import ModelLeaderboard from './ModelLeaderboard'
 import ModelPricePerf from './ModelPricePerf'
 import ModelTimeline from './ModelTimeline'
 import ModelBenchmarks from './ModelBenchmarks'
+import ModelDrawer from './ModelDrawer'
 
 type Tab = 'leaderboard' | 'price' | 'time' | 'data'
 const TABS: { id: Tab; label: string; icon: ReactNode }[] = [
@@ -89,6 +90,8 @@ export default function ModelsView() {
         {tab === 'time' && <ModelTimeline />}
         {tab === 'data' && <ModelBenchmarks />}
       </div>
+
+      <ModelDrawer />
     </div>
   )
 }

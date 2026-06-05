@@ -46,6 +46,8 @@ interface AtlasState extends Filters {
   // energy assumptions (tunable)
   loadFactor: number
   pue: number
+  // models view
+  selectedModel: string | null
   // actions
   toggle: (facet: FacetKey, value: string) => void
   setYearMax: (y: number) => void
@@ -59,6 +61,7 @@ interface AtlasState extends Filters {
   closeDerivation: () => void
   setLoadFactor: (n: number) => void
   setPue: (n: number) => void
+  selectModel: (id: string | null) => void
   reset: () => void
   activeFilterCount: () => number
 }
@@ -73,6 +76,7 @@ export const useAtlas = create<AtlasState>((set, get) => ({
   derivation: null,
   loadFactor: 0.8,
   pue: 1.3,
+  selectedModel: null,
 
   toggle: (facet, value) =>
     set((s) => {
@@ -91,6 +95,7 @@ export const useAtlas = create<AtlasState>((set, get) => ({
   closeDerivation: () => set({ derivation: null }),
   setLoadFactor: (loadFactor) => set({ loadFactor }),
   setPue: (pue) => set({ pue }),
+  selectModel: (selectedModel) => set({ selectedModel }),
   reset: () => set({ ...emptyFilters }),
   activeFilterCount: () => {
     const s = get()

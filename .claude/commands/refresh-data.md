@@ -10,7 +10,7 @@ Scope for this run: **$ARGUMENTS** (if empty, do a full sweep of all operators +
 
 ## Procedure
 
-1. **Load the schema and current data.** Read `src/types.ts` (the zod schema — the contract), then `src/data/datacenters.json`, `src/data/power-assets.json`, and `src/data/meta.json`.
+1. **Load the schema and current data.** Read `src/types.ts` (the zod schema — the contract), then `src/data/datacenters.json`, `src/data/power-assets.json`, and `src/data/meta.json`. For the **Models tracker**, also read `src/lib/models.ts` (the model schema) and `src/data/models.json`.
 
 2. **Research before changing anything.** For each operator / major project in scope (Stargate/OpenAI, Meta, Microsoft, Amazon/AWS, Google, xAI, Anthropic, neoclouds) and the power layer (nuclear restarts/PPAs/SMRs, on-site gas, geothermal, solar+storage), use **WebSearch / WebFetch to verify status, capacity (MW), capex, timeline, and power arrangements**. Also hunt for **newly announced campuses or power deals** not yet in the dataset.
    - **Never guess from a name or pattern.** If you can't find a source, leave the figure unchanged or mark it `confidence: "low"` — do not invent numbers or coordinates.
@@ -26,5 +26,14 @@ Scope for this run: **$ARGUMENTS** (if empty, do a full sweep of all operators +
 5. **Back up + validate.** Before writing, copy the prior files to `*.bak.json`. After editing, run `npm run validate` and fix any errors or schema/enums/referential-integrity warnings it reports.
 
 6. **Summarize for review (auto-write, review-after).** You apply the changes directly — don't wait for approval mid-task. Then print a concise changelog: **Added / Changed / Removed**, each line with the figure, the old→new value, and the source URL, so Henry can review the diff afterward and override if needed.
+
+## Models tracker (`src/data/models.json`)
+
+On a full sweep (or when scope mentions models / leaderboards / a specific lab), also refresh the frontier + open-weights model dataset:
+
+- Pull current standings from **artificialanalysis.ai** (Intelligence Index, price, speed, context), **lmarena.ai** (ELO — human votes), and the labs' own model + pricing pages. Update GPQA Diamond / AIME / SWE-bench Verified / MMLU-Pro / HLE from reputable trackers.
+- **Add newly released models** (new flagships, new open-weights) and flag superseded ones in `notes`; keep `id`s stable.
+- Same discipline: **cite every figure** in `sources`, set `confidence` honestly, and leave a field `null` rather than guess. Note when a "SWE-bench" number is actually SWE-bench *Pro* (not *Verified*), or AIME 2025 vs 2026.
+- Beware AI-generated SEO content with fabricated specs (it's rampant for new model names) — prefer primary lab pages and the two trackers above; if only secondary sources exist, set `confidence: "low"`.
 
 Be conservative: this dataset's credibility rests on every number being traceable to a source.
