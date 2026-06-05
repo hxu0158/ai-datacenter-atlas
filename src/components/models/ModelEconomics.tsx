@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import {
   ResponsiveContainer,
   ComposedChart,
+  ScatterChart,
   Line,
   Scatter,
   XAxis,
@@ -80,6 +81,94 @@ function IntelPerDollar() {
           </button>
         ))}
       </div>
+    </ChartCard>
+  )
+}
+
+function TipSpeed({ active, payload }: any) {
+  if (!active || !payload?.length) return null
+  const d = payload[0].payload
+  return (
+    <div className="rounded-md border border-ink-500/70 bg-ink-900/95 px-2.5 py-1.5 text-[11px] shadow-lg">
+      <div className="font-semibold text-slate-100">{d.name}</div>
+      <div className="text-slate-400">{d.lab} · {d.open ? 'open' : 'closed'}</div>
+      <div className="tnum mt-0.5 text-slate-300">{d.x} tok/s · ${d.y.toFixed(2)}/Mtok</div>
+    </div>
+  )
+}
+
+interface SPt {
+  id: string
+  name: string
+  lab: string
+  open: boolean
+  x: number
+  y: number
+  frontier: boolean
+  loff: number
+}
+
+function ThroughputCost() {
+  const select = useAtlas((s) => s.selectModel)
+  const data = useMemo<SPt[]>(() => {
+    const base = models
+      .map((m) => {
+        const bp = blendedPrice(m)
+        return bp != null && bp > 0 && m.speed_tok_s != null
+          ? { id: m.id, name: m.name, lab: m.lab, open: m.open_weights, x: m.speed_tok_s as number, y: bp }
+          : null
+      })
+      .filter((d): d is Omit<SPt, 'frontier' | 'loff'> => d != null)
+    // Pareto: want high speed (x) + low price (y). Sort by speed desc, keep running-min price.
+    const bySpeed = [...base].sort((a, b) => b.x - a.x)
+    let min = Infinity
+    const fset = new Set<string>()
+    for (const d of bySpeed) {
+      if (d.y < min) {
+        min = d.y
+        fset.add(d.id)
+      }
+    }
+    const ordered = base.filter((d) => fset.has(d.id)).sort((a, b) => a.x - b.x)
+    const off = new Map<string, number>()
+    ordered.forEach((d, i) => off.set(d.id, i % 2 === 0 ? -9 : 16))
+    return base.map((d) => ({ ...d, frontier: fset.has(d.id), loff: off.get(d.id) ?? -9 }))
+  }, [])
+
+  const renderName = (props: any) => {
+    const d = data[props.index]
+    if (!d || !d.frontier) return null
+    return (
+      <text x={props.x} y={props.y + d.loff} fill="#e2e8f0" fontSize={9} textAnchor="middle">
+        {d.name}
+      </text>
+    )
+  }
+
+  return (
+    <ChartCard
+      title="Throughput vs. cost — the inference tradeoff"
+      subtitle={`Output speed (tok/s) vs blended $/Mtok (log). Bottom-right = fast + cheap. Built from public tok/s + pricing (refreshable via /refresh-data) — our open analog to SemiAnalysis's InferenceX, with no proprietary data. ${data.length} models with a published speed; labeled = the speed/cost frontier.`}
+      wide
+    >
+      <ResponsiveContainer width="100%" height={330}>
+        <ScatterChart margin={{ top: 14, right: 24, left: 8, bottom: 24 }}>
+          <CartesianGrid stroke={GRID_COLOR} />
+          <XAxis type="number" dataKey="x" domain={[0, (max: number) => Math.ceil(max / 20) * 20 + 10]} tick={AXIS} tickLine={false} axisLine={false} tickFormatter={(v) => `${v}`}>
+            <Label value="Output speed (tok/s) →" position="bottom" fill="#64748b" fontSize={11} offset={8} />
+          </XAxis>
+          <YAxis type="number" dataKey="y" scale="log" domain={[0.1, 13]} ticks={[0.1, 0.3, 1, 3, 10]} allowDataOverflow tickFormatter={fmtPrice} tick={AXIS} tickLine={false} axisLine={false}>
+            <Label value="Blended $/Mtok (log)" angle={-90} position="left" fill="#64748b" fontSize={11} offset={-2} />
+          </YAxis>
+          <Tooltip content={<TipSpeed />} cursor={{ strokeDasharray: '3 3', stroke: '#3a4f68' }} />
+          <Scatter data={data} onClick={(p: any) => select(p?.id ?? p?.payload?.id ?? null)} className="cursor-pointer" isAnimationActive={false}>
+            {data.map((d, i) => (
+              <Cell key={i} fill={labColor(d.lab)} fillOpacity={d.open ? 0.45 : 0.95} stroke={d.frontier ? '#e2e8f0' : labColor(d.lab)} strokeWidth={d.frontier ? 1.5 : d.open ? 1.2 : 0} />
+            ))}
+            <LabelList dataKey="name" content={renderName} />
+          </Scatter>
+        </ScatterChart>
+      </ResponsiveContainer>
     </ChartCard>
   )
 }
@@ -198,6 +287,8 @@ export default function ModelEconomics() {
           Dimmed dots fall below the capability bar. The green line is the price floor for that intelligence level — falling as cheaper (often open-weights) models reach it.
         </div>
       </ChartCard>
+
+      <ThroughputCost />
 
       <IntelPerDollar />
     </div>

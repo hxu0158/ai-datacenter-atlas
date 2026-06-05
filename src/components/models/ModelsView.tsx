@@ -65,7 +65,7 @@ export default function ModelsView() {
           <Kpi label="Open vs closed" value={`${k.open} / ${k.closed}`} sub="open-weights / proprietary" />
         </div>
         <div className="mt-1.5 text-[10px] leading-snug text-slate-600">
-          Snapshot, Jun 2026 · "votes" = LMArena human-preference ELO; benchmarks (GPQA / AIME / SWE-bench / HLE) and the AA Intelligence Index vary by source &amp; effort setting — treat as directional. Color = lab; ○ = open weights.
+          Snapshot, Jun 2026 · "votes" = LMArena human-preference ELO; benchmarks (GPQA / AIME / SWE-bench / HLE) and the AA Intelligence Index vary by source &amp; effort setting — treat as directional. Color = lab; ○ = open weights. <span className="text-slate-500">All figures are public-sourced (LMArena, Artificial Analysis, lab pages) and refresh via <code className="rounded bg-ink-700/60 px-1">/refresh-data</code> — no paid or SemiAnalysis data is used.</span>
         </div>
       </div>
 
