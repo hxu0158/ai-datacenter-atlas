@@ -39,7 +39,9 @@ A second top-level tab tracking ~30 frontier + key open-weights models the way a
 - **Leaderboard** — rank by LMArena human votes (ELO) **or** any objective benchmark (GPQA, AIME, SWE-bench Verified, HLE, MMLU-Pro, or the AA Intelligence Index); bars colored by lab.
 - **Price vs. performance** — blended $/Mtok (log) vs Intelligence Index — the efficient frontier and the commoditization read (open/Chinese models cheap + near-frontier).
 - **Capability over time** — the Intelligence-Index frontier staircase, **closed vs open-weights**, surfacing the live ~6–7-point gap.
+- **Economics** (SemiAnalysis-inspired) — the **cost of intelligence collapsing** (cheapest $/Mtok to clear a capability bar, falling over time, with the deflation multiple) and an **intelligence-per-dollar** ranking. The supply-side metrics SemiAnalysis is known for (cost-to-serve, $/GPU-hr, inference margins) are their paid moat; these reproduce the demand side from public data.
 - **Benchmarks & data** — heat-mapped, sortable model table with pricing/context, **CSV export**.
+- Click any bar / dot / row for a **per-model drawer** (release, context, pricing, every benchmark, sources). Each metric is explained in plain English, and missing values are flagged ("no published figure: …") rather than guessed.
 
 Snapshot dataset at `src/data/models.json` (refreshable). Benchmark figures vary by source/effort setting and are directional; each record carries a confidence flag.
 

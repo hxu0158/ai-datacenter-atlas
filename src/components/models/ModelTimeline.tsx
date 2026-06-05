@@ -47,6 +47,7 @@ interface Pt {
   lab: string
   open: boolean
   mover: boolean
+  loff: number
 }
 
 function Tip({ active, payload }: any) {
@@ -83,6 +84,10 @@ export default function ModelTimeline() {
         }
       }
     }
+    // alternate label offsets (above/below) so crowded frontier-setters don't overlap
+    const moverList = models.filter((m) => movers.has(m.id)).sort((a, b) => dateNum(a.released) - dateNum(b.released))
+    const moff = new Map<string, number>()
+    moverList.forEach((m, i) => moff.set(m.id, i % 2 === 0 ? -9 : 16))
     return models
       .filter((m) => m.intelligence_index != null)
       .map((m) => ({
@@ -94,6 +99,7 @@ export default function ModelTimeline() {
         lab: m.lab,
         open: m.open_weights,
         mover: movers.has(m.id),
+        loff: moff.get(m.id) ?? -9,
       }))
   }, [])
 
@@ -104,7 +110,7 @@ export default function ModelTimeline() {
     const d = scatter[props.index]
     if (!d || !d.mover) return null
     return (
-      <text x={props.x} y={props.y - 9} fill="#e2e8f0" fontSize={9} textAnchor="middle">
+      <text x={props.x} y={props.y + d.loff} fill="#e2e8f0" fontSize={9} textAnchor="middle">
         {d.name}
       </text>
     )
@@ -138,7 +144,7 @@ export default function ModelTimeline() {
           <Tooltip content={<Tip />} cursor={{ strokeDasharray: '3 3', stroke: '#3a4f68' }} />
           <Line data={closedFrontier} dataKey="y" name="Closed frontier" type="stepAfter" stroke="#3fb6ff" strokeWidth={2} dot={false} isAnimationActive={false} />
           <Line data={openFrontier} dataKey="y" name="Open frontier" type="stepAfter" stroke="#a3e635" strokeWidth={2} strokeDasharray="5 4" dot={false} isAnimationActive={false} />
-          <Scatter data={scatter} onClick={(p: any) => select(p?.id ?? p?.payload?.id ?? null)} className="cursor-pointer">
+          <Scatter data={scatter} onClick={(p: any) => select(p?.id ?? p?.payload?.id ?? null)} className="cursor-pointer" isAnimationActive={false}>
             {scatter.map((d, i) => (
               <Cell key={i} fill={labColor(d.lab)} fillOpacity={d.open ? 0.5 : 0.95} stroke={d.mover ? '#e2e8f0' : labColor(d.lab)} strokeWidth={d.mover ? 1.4 : 0} />
             ))}

@@ -1,17 +1,19 @@
 import { useState, useMemo, type ReactNode } from 'react'
-import { Trophy, DollarSign, LineChart, Table2 } from 'lucide-react'
+import { Trophy, DollarSign, LineChart, Table2, TrendingDown } from 'lucide-react'
 import { models, blendedPrice, type AIModel } from '../../lib/models'
 import ModelLeaderboard from './ModelLeaderboard'
 import ModelPricePerf from './ModelPricePerf'
 import ModelTimeline from './ModelTimeline'
+import ModelEconomics from './ModelEconomics'
 import ModelBenchmarks from './ModelBenchmarks'
 import ModelDrawer from './ModelDrawer'
 
-type Tab = 'leaderboard' | 'price' | 'time' | 'data'
+type Tab = 'leaderboard' | 'price' | 'time' | 'econ' | 'data'
 const TABS: { id: Tab; label: string; icon: ReactNode }[] = [
   { id: 'leaderboard', label: 'Leaderboard', icon: <Trophy size={13} /> },
   { id: 'price', label: 'Price vs performance', icon: <DollarSign size={13} /> },
   { id: 'time', label: 'Capability over time', icon: <LineChart size={13} /> },
+  { id: 'econ', label: 'Economics', icon: <TrendingDown size={13} /> },
   { id: 'data', label: 'Benchmarks & data', icon: <Table2 size={13} /> },
 ]
 
@@ -88,6 +90,7 @@ export default function ModelsView() {
         {tab === 'leaderboard' && <ModelLeaderboard />}
         {tab === 'price' && <ModelPricePerf />}
         {tab === 'time' && <ModelTimeline />}
+        {tab === 'econ' && <ModelEconomics />}
         {tab === 'data' && <ModelBenchmarks />}
       </div>
 

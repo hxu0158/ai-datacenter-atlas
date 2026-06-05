@@ -23,6 +23,7 @@ interface Pt {
   x: number
   y: number
   frontier: boolean
+  loff: number
 }
 
 function Tip({ active, payload }: any) {
@@ -60,14 +61,17 @@ export default function ModelPricePerf() {
         frontierIds.add(p.id)
       }
     }
-    return base.map((d) => ({ ...d, frontier: frontierIds.has(d.id) }))
+    const frontierOrdered = base.filter((d) => frontierIds.has(d.id)).sort((a, b) => a.x - b.x)
+    const foff = new Map<string, number>()
+    frontierOrdered.forEach((d, i) => foff.set(d.id, i % 2 === 0 ? -9 : 16))
+    return base.map((d) => ({ ...d, frontier: frontierIds.has(d.id), loff: foff.get(d.id) ?? -9 }))
   }, [])
 
   const renderName = (props: any) => {
     const d = data[props.index]
     if (!d || !d.frontier) return null
     return (
-      <text x={props.x} y={props.y - 9} fill="#e2e8f0" fontSize={9} textAnchor="middle">
+      <text x={props.x} y={props.y + d.loff} fill="#e2e8f0" fontSize={9} textAnchor="middle">
         {d.name}
       </text>
     )
@@ -86,11 +90,13 @@ export default function ModelPricePerf() {
             type="number"
             dataKey="x"
             scale="log"
-            domain={['auto', 'auto']}
+            domain={[0.1, 13]}
+            ticks={[0.1, 0.3, 1, 3, 10]}
+            allowDataOverflow
             tick={AXIS}
             tickLine={false}
             axisLine={false}
-            tickFormatter={(v) => `$${v}`}
+            tickFormatter={(v) => `$${v >= 1 ? v : v.toFixed(2)}`}
           >
             <Label value="Blended $ / Mtok  (log scale)" position="bottom" fill="#64748b" fontSize={11} offset={8} />
           </XAxis>
@@ -98,7 +104,7 @@ export default function ModelPricePerf() {
             <Label value="Intelligence Index" angle={-90} position="left" fill="#64748b" fontSize={11} offset={-2} />
           </YAxis>
           <Tooltip content={<Tip />} cursor={{ strokeDasharray: '3 3', stroke: '#3a4f68' }} />
-          <Scatter data={data} onClick={(p: any) => select(p?.id ?? p?.payload?.id ?? null)} className="cursor-pointer">
+          <Scatter data={data} onClick={(p: any) => select(p?.id ?? p?.payload?.id ?? null)} className="cursor-pointer" isAnimationActive={false}>
             {data.map((d, i) => (
               <Cell
                 key={i}

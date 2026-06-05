@@ -171,6 +171,12 @@ export default function DetailDrawer() {
                 <Stat label="Full buildout" value={dc.timeline.full_buildout_year} />
               )}
               <Stat icon={<DollarSign size={12} />} label="Investment" value={fmtUSD(dc.investment_usd_b)} />
+              {dc.investment_usd_b != null && dc.capacity.mw_it_full > 0 && (
+                <Stat
+                  label="Capex intensity"
+                  value={`$${((dc.investment_usd_b * 1000) / dc.capacity.mw_it_full).toFixed(1)}/W`}
+                />
+              )}
             </Section>
 
             <Section title="Power supply">
