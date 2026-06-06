@@ -69,6 +69,13 @@ export default function ModelDrawer() {
           <Row label="Input" value={m.price_in == null ? '—' : `$${m.price_in}`} />
           <Row label="Output" value={m.price_out == null ? '—' : `$${m.price_out}`} />
           <Row label="Blended (3:1)" value={blendedPrice(m) == null ? '—' : `$${blendedPrice(m)!.toFixed(2)}`} />
+          {m.open_weights ? (
+            <div className="mt-1 text-[10px] leading-snug text-slate-500">
+              Open weights have no single official price — this is a representative third-party inference-host rate (e.g. OpenRouter / Together / Fireworks, or the lab&apos;s own API); it varies by provider and GPU spot prices.
+            </div>
+          ) : (
+            <div className="mt-1 text-[10px] leading-snug text-slate-500">First-party API list price.</div>
+          )}
         </div>
 
         <div className="border-t border-ink-600/60 pt-2">

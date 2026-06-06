@@ -1,8 +1,7 @@
 import { useMemo } from 'react'
 import {
   ResponsiveContainer,
-  ComposedChart,
-  Line,
+  ScatterChart,
   Scatter,
   XAxis,
   YAxis,
@@ -123,7 +122,7 @@ export default function ModelTimeline() {
       wide
     >
       <ResponsiveContainer width="100%" height={380}>
-        <ComposedChart margin={{ top: 18, right: 20, left: 8, bottom: 26 }}>
+        <ScatterChart margin={{ top: 18, right: 20, left: 8, bottom: 26 }}>
           <CartesianGrid stroke={GRID_COLOR} />
           <XAxis
             type="number"
@@ -142,15 +141,16 @@ export default function ModelTimeline() {
           </YAxis>
           <ZAxis dataKey="z" range={[55, 150]} />
           <Tooltip content={<Tip />} cursor={{ strokeDasharray: '3 3', stroke: '#3a4f68' }} />
-          <Line data={closedFrontier} dataKey="y" name="Closed frontier" type="stepAfter" stroke="#3fb6ff" strokeWidth={2} dot={false} isAnimationActive={false} />
-          <Line data={openFrontier} dataKey="y" name="Open frontier" type="stepAfter" stroke="#a3e635" strokeWidth={2} strokeDasharray="5 4" dot={false} isAnimationActive={false} />
+          {/* frontiers drawn as connecting lines with hidden points (ScatterChart keeps per-dot tooltips working) */}
+          <Scatter data={closedFrontier} line={{ stroke: '#3fb6ff', strokeWidth: 2 }} lineType="joint" shape={() => <g />} isAnimationActive={false} />
+          <Scatter data={openFrontier} line={{ stroke: '#a3e635', strokeWidth: 2, strokeDasharray: '5 4' }} lineType="joint" shape={() => <g />} isAnimationActive={false} />
           <Scatter data={scatter} onClick={(p: any) => select(p?.id ?? p?.payload?.id ?? null)} className="cursor-pointer" isAnimationActive={false}>
             {scatter.map((d, i) => (
               <Cell key={i} fill={labColor(d.lab)} fillOpacity={d.open ? 0.5 : 0.95} stroke={d.mover ? '#e2e8f0' : labColor(d.lab)} strokeWidth={d.mover ? 1.4 : 0} />
             ))}
             <LabelList dataKey="name" content={renderName} />
           </Scatter>
-        </ComposedChart>
+        </ScatterChart>
       </ResponsiveContainer>
       <div className="mt-1 flex flex-wrap items-center gap-4 text-[11px] text-slate-400">
         <span className="flex items-center gap-1.5"><span className="inline-block h-0.5 w-4" style={{ background: '#3fb6ff' }} /> closed frontier (now {closedTop})</span>
